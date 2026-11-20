@@ -15,9 +15,9 @@
 <meta property="og:image" content="https://noteelus.github.io/assets/icon-512.png?v=2">
 <meta property="og:url" content="https://noteelus.github.io/">
 <script>
-(function(){try{if(localStorage.getItem("noteelus_teaser_theme")!=="light")document.documentElement.setAttribute("data-theme","dark");}catch(_){document.documentElement.setAttribute("data-theme","dark");}})();
+(function(){try{var s=localStorage.getItem("noteelus_teaser_theme");var d=s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.setAttribute("data-theme","dark");}catch(_){if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}})();
 </script>
-<link rel="stylesheet" href="/assets/teaser.css?v=4">
+<link rel="stylesheet" href="/assets/teaser.css?v=6">
 </head>
 <body>
 
@@ -28,13 +28,26 @@
       <span>Noteelus</span>
     </a>
     <div class="tools">
-      <button type="button" class="icon-btn" id="theme-btn" aria-pressed="true" title="Toggle Dark Ink / Light Paper">
+      <button type="button" class="icon-btn" id="theme-btn" aria-pressed="false" aria-label="Dark" title="Toggle Light / Dark">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.5v1.3M8 13.2v1.3M1.5 8h1.3M13.2 8h1.3M3.4 3.4l.9.9M11.7 11.7l.9.9M12.6 3.4l-.9.9M4.3 11.7l-.9.9"/></svg>
-        <span id="theme-lbl">Light</span>
+        <span id="theme-lbl">Dark</span>
       </button>
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      <div class="lang-menu" id="lang-menu">
+        <button type="button" class="lang-trigger" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Language" title="Language">
+          <svg class="lang-globe" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="3.1" ry="6.2"/><path d="M2 8h12M2.8 5h10.4M2.8 11h10.4"/></svg>
+          <span class="lang-name-full" id="lang-full">English</span>
+          <span class="lang-name-short" id="lang-short">EN</span>
+          <svg class="lang-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </button>
+        <div class="lang-popover" id="lang-popover" role="listbox" aria-label="Language" hidden>
+          <button type="button" class="lang-option" role="option" data-lang="en" aria-selected="true"><span>English</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang="zh-CN" aria-selected="false"><span>简体中文</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang="ru" aria-selected="false"><span>Русский</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang="es" aria-selected="false"><span>Español</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang="pt-BR" aria-selected="false"><span>Português (Brasil)</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang="fr" aria-selected="false"><span>Français</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang="tr" aria-selected="false"><span>Türkçe</span><span class="lang-check" aria-hidden="true">✓</span></button>
+        </div>
       </div>
       <a class="gh-link" href="https://github.com/Noteelus/noteelus.github.io" aria-label="Noteelus on GitHub" title="Noteelus on GitHub">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -48,7 +61,7 @@
     <img class="emblem" src="/assets/icon-256.png?v=2" width="56" height="56" alt="Noteelus app icon">
 
     <h1 data-th="h1">Plain text, quietly <em>coming alive</em>.</h1>
-    <p class="lede" data-t="lede">A local-first note workspace for macOS, Windows, Android and iOS. Live Markdown formulas, offline 3D journey globes, Spaces and client-side encrypted vaults. No account. No server.</p>
+    <p class="lede" data-t="lede">A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.</p>
     <p class="platforms-line" data-t="platforms">Coming soon for macOS · Windows · Android · iOS</p>
 
     <div class="note-card" aria-label="Interactive Noteelus Markdown and Pretty example">
@@ -149,7 +162,7 @@
   var costs = [180, 195, 60];
   var state = {
     lang: "en",
-    theme: "dark",
+    theme: "light",
     view: "raw",
     budget: 450,
     checked: [true, true, false]
@@ -159,7 +172,7 @@
     en: {
       pageTitle: "Noteelus · Coming soon",
       h1: "Plain text, quietly <em>coming alive</em>.",
-      lede: "A local-first note workspace for macOS, Windows, Android and iOS. Live Markdown formulas, offline 3D journey globes, Spaces and client-side encrypted vaults. No account. No server.",
+      lede: "A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.",
       platforms: "Coming soon for macOS · Windows · Android · iOS",
       viewRaw: "Markdown",
       viewPretty: "Pretty",
@@ -185,10 +198,126 @@
       dark: "Dark",
       light: "Light"
     },
+    "zh-CN": {
+      pageTitle: "Noteelus · 即将推出",
+      h1: "纯文本笔记，悄然<em>焕发生机</em>。",
+      lede: "一个安静、私密的笔记空间，容纳日常笔记、预算、旅行地图与照片。数据保存在你自己的设备上，无需账号，无需服务器。",
+      platforms: "即将登陆 macOS · Windows · Android · iOS",
+      viewRaw: "Markdown",
+      viewPretty: "预览",
+      mdTitle: "# 里斯本周末",
+      mdBudgetLbl: "预算 (€)",
+      mdRemLbl: "剩余:",
+      pvTitle: "里斯本周末",
+      pvBudgetLbl: "预算 (€)",
+      item0: "机票",
+      item1: "住宿",
+      item2: "晚餐",
+      spentPrefix: "已花费",
+      remPrefix: "剩余",
+      hintRaw: "修改预算或勾选清单，再切换到预览",
+      hintPretty: "勾选项目或调整预算，切换回 Markdown",
+      resetBtn: "重置",
+      cta1: "关注 GitHub",
+      cta2: "隐私与架构",
+      f1: "隐私政策",
+      f2: "使用条款",
+      f3: "第三方声明",
+      f4: "问题反馈",
+      dark: "深色",
+      light: "浅色"
+    },
+    ru: {
+      pageTitle: "Noteelus · Скоро выход",
+      h1: "Обычный текст, который <em>оживает</em>.",
+      lede: "Спокойное и приватное пространство для заметок, бюджетов, карт поездок и фото. Всё хранится на ваших устройствах. Без аккаунта и серверов.",
+      platforms: "Скоро на macOS · Windows · Android · iOS",
+      viewRaw: "Markdown",
+      viewPretty: "Вид",
+      mdTitle: "# Выходные в Лиссабоне",
+      mdBudgetLbl: "Бюджет (€)",
+      mdRemLbl: "Остаток:",
+      pvTitle: "Выходные в Лиссабоне",
+      pvBudgetLbl: "Бюджет (€)",
+      item0: "Перелёт",
+      item1: "Жильё",
+      item2: "Ужин",
+      spentPrefix: "Потрачено",
+      remPrefix: "Остаток",
+      hintRaw: "Измените бюджет или отметьте пункты, затем откройте Вид",
+      hintPretty: "Переключайте пункты или бюджет, вернитесь к Markdown",
+      resetBtn: "Сброс",
+      cta1: "Следить на GitHub",
+      cta2: "Приватность и архитектура",
+      f1: "Политика конфиденциальности",
+      f2: "Условия использования",
+      f3: "Сторонние лицензии",
+      f4: "Вопросы",
+      dark: "Тёмная",
+      light: "Светлая"
+    },
+    es: {
+      pageTitle: "Noteelus · Próximamente",
+      h1: "Texto plano que <em>cobra vida</em>.",
+      lede: "Un espacio tranquilo y privado para tus notas, presupuestos, mapas de viaje y fotos. Guardado en tus dispositivos. Sin cuenta. Sin servidor.",
+      platforms: "Próximamente para macOS · Windows · Android · iOS",
+      viewRaw: "Markdown",
+      viewPretty: "Vista",
+      mdTitle: "# Fin de semana en Lisboa",
+      mdBudgetLbl: "Presupuesto (€)",
+      mdRemLbl: "Restante:",
+      pvTitle: "Fin de semana en Lisboa",
+      pvBudgetLbl: "Presupuesto (€)",
+      item0: "Vuelo",
+      item1: "Alojamiento",
+      item2: "Cena",
+      spentPrefix: "Gastado",
+      remPrefix: "Restante",
+      hintRaw: "Edita el presupuesto o marca tareas y pasa a Vista",
+      hintPretty: "Marca tareas o ajusta el presupuesto y vuelve a Markdown",
+      resetBtn: "Restablecer",
+      cta1: "Seguir en GitHub",
+      cta2: "Privacidad y Arquitectura",
+      f1: "Política de privacidad",
+      f2: "Términos de uso",
+      f3: "Avisos de terceros",
+      f4: "Issues",
+      dark: "Oscuro",
+      light: "Claro"
+    },
+    "pt-BR": {
+      pageTitle: "Noteelus · Em breve",
+      h1: "Texto puro que <em>ganha vida</em>.",
+      lede: "Um espaço tranquilo e privado para suas notas, orçamentos, mapas de viagem e fotos. Tudo salvo nos seus dispositivos. Sem conta. Sem servidor.",
+      platforms: "Em breve para macOS · Windows · Android · iOS",
+      viewRaw: "Markdown",
+      viewPretty: "Visual",
+      mdTitle: "# Fim de semana em Lisboa",
+      mdBudgetLbl: "Orçamento (€)",
+      mdRemLbl: "Restante:",
+      pvTitle: "Fim de semana em Lisboa",
+      pvBudgetLbl: "Orçamento (€)",
+      item0: "Voo",
+      item1: "Hospedagem",
+      item2: "Jantar",
+      spentPrefix: "Gasto",
+      remPrefix: "Restante",
+      hintRaw: "Edite o orçamento ou marque itens e alterne para Visual",
+      hintPretty: "Marque itens ou ajuste o orçamento e volte ao Markdown",
+      resetBtn: "Redefinir",
+      cta1: "Acompanhar no GitHub",
+      cta2: "Privacidade e Arquitetura",
+      f1: "Privacidade",
+      f2: "Termos de uso",
+      f3: "Avisos de terceiros",
+      f4: "Issues",
+      dark: "Escuro",
+      light: "Claro"
+    },
     fr: {
       pageTitle: "Noteelus · Bientôt disponible",
       h1: "Le texte brut, prêt à <em>prendre vie</em>.",
-      lede: "Un carnet local-first pour macOS, Windows, Android et iOS. Formules Markdown en direct, globes 3D hors-ligne, Espaces et coffres chiffrés côté client. Sans compte. Sans serveur.",
+      lede: "Un espace calme et privé pour vos notes, budgets, cartes de voyage et photos. Enregistré sur vos appareils. Sans compte. Sans serveur.",
       platforms: "Bientôt disponible sur macOS · Windows · Android · iOS",
       viewRaw: "Markdown",
       viewPretty: "Rendu",
@@ -213,8 +342,83 @@
       f4: "Issues",
       dark: "Sombre",
       light: "Clair"
+    },
+    tr: {
+      pageTitle: "Noteelus · Yakında",
+      h1: "Düz metin, sessizce <em>canlanıyor</em>.",
+      lede: "Notlarınız, bütçeleriniz, seyahat haritalarınız ve fotoğraflarınız için sakin ve özel bir alan. Kendi cihazlarınızda saklanır. Hesap yok. Sunucu yok.",
+      platforms: "macOS · Windows · Android · iOS için yakında",
+      viewRaw: "Markdown",
+      viewPretty: "Görünüm",
+      mdTitle: "# Lizbon Hafta Sonu",
+      mdBudgetLbl: "Bütçe (€)",
+      mdRemLbl: "Kalan:",
+      pvTitle: "Lizbon Hafta Sonu",
+      pvBudgetLbl: "Bütçe (€)",
+      item0: "Uçuş",
+      item1: "Konaklama",
+      item2: "Akşam yemeği",
+      spentPrefix: "Harcanan",
+      remPrefix: "Kalan",
+      hintRaw: "Bütçeyi düzenleyin veya öğeleri işaretleyin, Görünüm'e geçin",
+      hintPretty: "Öğeleri veya bütçeyi değiştirin, Markdown'a geri dönün",
+      resetBtn: "Sıfırla",
+      cta1: "GitHub'da Takip Et",
+      cta2: "Gizlilik ve Mimari",
+      f1: "Gizlilik Politikası",
+      f2: "Kullanım Koşulları",
+      f3: "Üçüncü Taraf Bildirimleri",
+      f4: "Sorun Bildir",
+      dark: "Koyu",
+      light: "Açık"
     }
   };
+
+  var langMeta = {
+    en: { full: "English", short: "EN" },
+    "zh-CN": { full: "简体中文", short: "中文" },
+    ru: { full: "Русский", short: "RU" },
+    es: { full: "Español", short: "ES" },
+    "pt-BR": { full: "Português (Brasil)", short: "PT" },
+    fr: { full: "Français", short: "FR" },
+    tr: { full: "Türkçe", short: "TR" }
+  };
+
+  function normalizeLang(tag) {
+    if (!tag) return null;
+    var n = String(tag).trim().replace(/_/g, "-").toLowerCase();
+    if (n === "zh" || n === "zh-cn" || n.indexOf("zh-hans") === 0) return "zh-CN";
+    if (n === "pt" || n === "pt-br" || n.indexOf("pt-br-") === 0) return "pt-BR";
+    if (n === "ru" || n.indexOf("ru-") === 0) return "ru";
+    if (n === "es" || n.indexOf("es-") === 0) return "es";
+    if (n === "fr" || n.indexOf("fr-") === 0) return "fr";
+    if (n === "tr" || n.indexOf("tr-") === 0) return "tr";
+    if (n === "en" || n.indexOf("en-") === 0) return "en";
+    return null;
+  }
+
+  function detectLang() {
+    var q = normalizeLang(new URLSearchParams(window.location.search).get("lang"));
+    if (q && copy[q]) return q;
+    try {
+      var saved = normalizeLang(localStorage.getItem("noteelus_teaser_lang"));
+      if (saved && copy[saved]) return saved;
+    } catch (_) {}
+    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || navigator.userLanguage || "en"];
+    for (var i = 0; i < langs.length; i++) {
+      var m = normalizeLang(langs[i]);
+      if (m && copy[m]) return m;
+    }
+    return "en";
+  }
+
+  function detectTheme() {
+    try {
+      var s = localStorage.getItem("noteelus_teaser_theme");
+      if (s === "dark" || s === "light") return s;
+    } catch (_) {}
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
 
   var rawPane = document.getElementById("pane-raw");
   var prettyPane = document.getElementById("pane-pretty");
@@ -225,6 +429,27 @@
   var pvRem = document.getElementById("pv-rem");
   var hintEl = document.getElementById("note-hint");
   var resetEl = document.getElementById("note-reset");
+  var langMenu = document.getElementById("lang-menu");
+  var langTrigger = document.getElementById("lang-trigger");
+  var langPopover = document.getElementById("lang-popover");
+  var langFull = document.getElementById("lang-full");
+  var langShort = document.getElementById("lang-short");
+  var langOptions = langPopover ? Array.prototype.slice.call(langPopover.querySelectorAll(".lang-option")) : [];
+
+  function closeLangMenu(restoreFocus) {
+    if (!langPopover || langPopover.hidden) return;
+    langPopover.hidden = true;
+    if (langTrigger) {
+      langTrigger.setAttribute("aria-expanded", "false");
+      if (restoreFocus) langTrigger.focus();
+    }
+  }
+
+  function openLangMenu() {
+    if (!langPopover || !langPopover.hidden) return;
+    langPopover.hidden = false;
+    if (langTrigger) langTrigger.setAttribute("aria-expanded", "true");
+  }
 
   function isDirty() {
     return state.budget !== 450 ||
@@ -234,7 +459,7 @@
   }
 
   function syncValues(fromSource) {
-    var d = copy[state.lang];
+    var d = copy[state.lang] || copy.en;
     var spent = 0;
     for (var i = 0; i < costs.length; i++) {
       if (state.checked[i]) spent += costs[i];
@@ -281,30 +506,37 @@
     document.querySelectorAll(".view-tabs button").forEach(function (b) {
       b.setAttribute("aria-pressed", b.getAttribute("data-view") === state.view ? "true" : "false");
     });
-    var d = copy[state.lang];
+    var d = copy[state.lang] || copy.en;
     if (hintEl) hintEl.textContent = state.view === "pretty" ? d.hintPretty : d.hintRaw;
   }
 
-  function setTheme(t) {
-    state.theme = t;
-    if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  function setTheme(t, persist) {
+    state.theme = t === "dark" ? "dark" : "light";
+    if (state.theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
     else document.documentElement.removeAttribute("data-theme");
-    try { localStorage.setItem("noteelus_teaser_theme", t); } catch (_) {}
+    if (persist) {
+      try { localStorage.setItem("noteelus_teaser_theme", state.theme); } catch (_) {}
+    }
     var btn = document.getElementById("theme-btn");
     var lbl = document.getElementById("theme-lbl");
-    if (btn) btn.setAttribute("aria-pressed", t === "dark" ? "true" : "false");
-    if (lbl) {
-      var d = copy[state.lang];
-      lbl.textContent = t === "dark" ? d.light : d.dark;
+    var d = copy[state.lang] || copy.en;
+    var nextTxt = state.theme === "dark" ? d.light : d.dark;
+    if (btn) {
+      btn.setAttribute("aria-pressed", state.theme === "dark" ? "true" : "false");
+      btn.setAttribute("aria-label", nextTxt);
     }
+    if (lbl) lbl.textContent = nextTxt;
   }
 
-  function setLang(l) {
-    state.lang = l === "fr" ? "fr" : "en";
+  function setLang(l, persist) {
+    var norm = normalizeLang(l) || "en";
+    state.lang = copy[norm] ? norm : "en";
     var d = copy[state.lang];
     document.documentElement.lang = state.lang;
     document.title = d.pageTitle;
-    try { localStorage.setItem("noteelus_teaser_lang", state.lang); } catch (_) {}
+    if (persist) {
+      try { localStorage.setItem("noteelus_teaser_lang", state.lang); } catch (_) {}
+    }
     document.querySelectorAll("[data-t]").forEach(function (el) {
       var k = el.getAttribute("data-t");
       if (d[k] !== undefined) el.textContent = d[k];
@@ -313,10 +545,13 @@
       var k = el.getAttribute("data-th");
       if (d[k] !== undefined) el.innerHTML = d[k];
     });
-    document.querySelectorAll(".lang-toggle button").forEach(function (b) {
-      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === state.lang ? "true" : "false");
+    var meta = langMeta[state.lang] || langMeta.en;
+    if (langFull) langFull.textContent = meta.full;
+    if (langShort) langShort.textContent = meta.short;
+    langOptions.forEach(function (opt) {
+      opt.setAttribute("aria-selected", opt.getAttribute("data-lang") === state.lang ? "true" : "false");
     });
-    setTheme(state.theme);
+    setTheme(state.theme, false);
     setView(state.view);
     syncValues();
   }
@@ -352,31 +587,56 @@
     });
   }
 
-  var savedT = "dark";
-  try {
-    var st = localStorage.getItem("noteelus_teaser_theme");
-    if (st === "light" || st === "dark") savedT = st;
-  } catch (_) {}
-  state.theme = savedT;
-
-  var qLang = new URLSearchParams(window.location.search).get("lang");
-  var savedL = qLang === "fr" || qLang === "en" ? qLang : "en";
-  try {
-    if (!qLang) {
-      var sl = localStorage.getItem("noteelus_teaser_lang");
-      if (sl === "fr" || sl === "en") savedL = sl;
-    }
-  } catch (_) {}
-
-  setLang(savedL);
+  state.theme = detectTheme();
+  setLang(detectLang(), false);
 
   var tb = document.getElementById("theme-btn");
   if (tb) tb.addEventListener("click", function () {
-    setTheme(state.theme === "dark" ? "light" : "dark");
+    setTheme(state.theme === "dark" ? "light" : "dark", true);
   });
-  document.querySelectorAll(".lang-toggle button").forEach(function (b) {
-    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
-  });
+  if (langTrigger && langPopover) {
+    langTrigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (langPopover.hidden) openLangMenu();
+      else closeLangMenu(false);
+    });
+    langOptions.forEach(function (opt, idx) {
+      opt.addEventListener("click", function () {
+        setLang(opt.getAttribute("data-lang"), true);
+        closeLangMenu(true);
+      });
+      opt.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          langOptions[(idx + 1) % langOptions.length].focus();
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          langOptions[(idx - 1 + langOptions.length) % langOptions.length].focus();
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          closeLangMenu(true);
+        }
+      });
+    });
+    document.addEventListener("click", function (e) {
+      if (langMenu && !langMenu.contains(e.target)) closeLangMenu(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLangMenu(true);
+    });
+  }
+
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var onOsTheme = function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem("noteelus_teaser_theme"); } catch (_) {}
+      if (saved !== "dark" && saved !== "light") {
+        setTheme(e.matches ? "dark" : "light", false);
+      }
+    };
+    if (mq.addEventListener) mq.addEventListener("change", onOsTheme);
+  }
 })();
 </script>
 </body>
