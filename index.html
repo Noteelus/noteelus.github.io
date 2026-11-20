@@ -17,7 +17,7 @@
 <script>
 (function(){try{if(localStorage.getItem("noteelus_teaser_theme")!=="light")document.documentElement.setAttribute("data-theme","dark");}catch(_){document.documentElement.setAttribute("data-theme","dark");}})();
 </script>
-<link rel="stylesheet" href="/assets/teaser.css?v=3">
+<link rel="stylesheet" href="/assets/teaser.css?v=4">
 </head>
 <body>
 
@@ -51,108 +51,78 @@
     <p class="lede" data-t="lede">A local-first note workspace for macOS, Windows, Android and iOS. Live Markdown formulas, offline 3D journey globes, Spaces and client-side encrypted vaults. No account. No server.</p>
     <p class="platforms-line" data-t="platforms">Coming soon for macOS · Windows · Android · iOS</p>
 
-    <div class="curtain-card" aria-label="Interactive comparison of Markdown syntax and Pretty preview">
-      <div class="curtain-bar">
-        <div class="curtain-file">
+    <div class="note-card" aria-label="Interactive Noteelus Markdown and Pretty example">
+      <div class="note-bar">
+        <div class="note-file">
           <span class="dot-row" aria-hidden="true">
             <i style="background:#FF8169"></i>
             <i style="background:#5A90CC"></i>
             <i style="background:#A594F0"></i>
           </span>
-          <span>notes/horizon.md</span>
+          <span>notes/lisbon.md</span>
         </div>
-        <div class="curtain-modes" role="group" aria-label="Preview wipe presets">
-          <button type="button" data-snap="100" aria-pressed="false" data-t="modeRaw">Markdown</button>
-          <button type="button" data-snap="52" aria-pressed="true" data-t="modeSplit">Split</button>
-          <button type="button" data-snap="0" aria-pressed="false" data-t="modePretty">Pretty</button>
-        </div>
-      </div>
-
-      <div class="curtain-stage" id="curtain-stage">
-        <div class="curtain-pretty">
-          <div class="pretty-head">
-            <span class="pretty-title" data-t="pvTitle">Autumn Trip &amp; Budget</span>
-            <span class="pretty-meta" data-t="pvMeta">Live · Offline</span>
-          </div>
-
-          <div class="pretty-rows">
-            <div class="pretty-row">
-              <div class="pretty-row-text">
-                <div class="pretty-k" data-t="pvBudgetK">Budget · Expenses</div>
-                <div class="pretty-v">
-                  <strong data-t="pvBudgetV">2,200 limit</strong>
-                  <span class="sep">·</span>
-                  <span data-t="pvSpent">1,693 spent</span>
-                  <span class="sep">·</span>
-                  <span class="ok" data-t="pvRem">507 remaining</span>
-                </div>
-              </div>
-              <svg class="mini-bars" viewBox="0 0 68 34" aria-hidden="true">
-                <line x1="2" y1="31" x2="66" y2="31" stroke="currentColor" stroke-opacity=".18" stroke-width="1"/>
-                <rect x="6" y="5" width="7" height="25" rx="2" fill="var(--blue)"/>
-                <rect x="15" y="5" width="7" height="25" rx="2" fill="var(--coral)"/>
-                <rect x="28" y="13" width="7" height="17" rx="2" fill="var(--blue)"/>
-                <rect x="37" y="15" width="7" height="15" rx="2" fill="var(--coral)"/>
-                <rect x="50" y="21" width="7" height="9" rx="2" fill="var(--blue)"/>
-                <rect x="59" y="18" width="7" height="12" rx="2" fill="var(--coral)"/>
-              </svg>
-            </div>
-
-            <div class="pretty-row">
-              <div class="pretty-row-text">
-                <div class="pretty-k" data-t="pvMapK">Offline 3D Globe</div>
-                <div class="pretty-v">
-                  <strong data-t="pvRoute">Paris → Kyoto → Seoul</strong>
-                  <span class="sep">·</span>
-                  <span>10,923 km</span>
-                </div>
-              </div>
-              <svg class="mini-globe" viewBox="0 0 36 36" aria-hidden="true">
-                <circle cx="18" cy="18" r="15.5" fill="var(--surface-alt)" stroke="currentColor" stroke-opacity=".2" stroke-width="1"/>
-                <circle cx="11" cy="13" r="1" fill="currentColor" fill-opacity=".35"/>
-                <circle cx="15" cy="11" r="1" fill="currentColor" fill-opacity=".35"/>
-                <circle cx="19" cy="13" r="1" fill="currentColor" fill-opacity=".35"/>
-                <circle cx="24" cy="15" r="1" fill="currentColor" fill-opacity=".35"/>
-                <circle cx="26" cy="20" r="1" fill="currentColor" fill-opacity=".35"/>
-                <circle cx="14" cy="21" r="1" fill="currentColor" fill-opacity=".3"/>
-                <circle cx="18" cy="25" r="1" fill="currentColor" fill-opacity=".3"/>
-                <path d="M9.5 14.5 Q 18 7 26.5 18.5" fill="none" stroke="var(--coral)" stroke-width="1.6" stroke-dasharray="2.5 2"/>
-                <circle cx="9.5" cy="14.5" r="2.2" fill="var(--coral)"/>
-                <circle cx="22.5" cy="14" r="1.8" fill="var(--coral)"/>
-                <circle cx="26.5" cy="18.5" r="2.4" fill="var(--coral)"/>
-              </svg>
-            </div>
-
-            <div class="pretty-row">
-              <div class="pretty-row-text">
-                <div class="pretty-k" data-t="pvVaultK">Private Vault Container</div>
-                <div class="pretty-v">
-                  <span class="ok" data-t="pvVaultV">Sealed locally &amp; on Google Drive</span>
-                </div>
-              </div>
-              <svg class="mini-lock" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="4.5" y="10.5" width="15" height="9.5" rx="2.5"/>
-                <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="curtain-raw" aria-hidden="true">
-          <pre class="curtain-code"><span class="tok-h" data-t="rawH"># Autumn Trip &amp; Budget</span>
-<span class="tok-v">::var</span>[<span data-t="rawBudgetLbl">Budget</span>]{limit=2200}  <span class="tok-c">·  =sum(expenses.spent)</span> <span class="tok-out">→ 1693</span>
-<span class="tok-v">```map-3d</span> {style=dots color=orange}  <span class="tok-c">- Paris → Kyoto → Seoul</span>
-<span class="tok-v">::vault</span>[<span data-t="rawVaultLbl">Private</span>] {cipher=client-side} <span class="tok-out" data-t="rawVaultOut">· sealed locally &amp; on Drive</span></pre>
-        </div>
-
-        <div class="curtain-beam" id="curtain-handle" role="slider" tabindex="0" aria-label="Wipe between raw Markdown and Pretty preview" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52">
-          <span class="curtain-knob" aria-hidden="true">‹ ›</span>
+        <div class="view-tabs" role="group" aria-label="Note view mode">
+          <button type="button" data-view="raw" aria-pressed="true" data-t="viewRaw">Markdown</button>
+          <button type="button" data-view="pretty" aria-pressed="false" data-t="viewPretty">Pretty</button>
         </div>
       </div>
 
-      <div class="curtain-foot">
-        <span data-t="wipeHint">Drag across the card or click Markdown / Pretty to reveal</span>
-        <span class="curtain-pct" id="curtain-pct">52%</span>
+      <div class="note-body">
+        <div class="note-pane note-raw" id="pane-raw">
+          <div class="raw-line"><span class="tok-h" data-t="mdTitle"># Lisbon Weekend</span></div>
+          <div class="raw-line raw-spacer" aria-hidden="true"></div>
+          <div class="raw-line"><span class="tok-v">::var</span>[<span data-t="mdBudgetLbl">Budget (€)</span>]{budget=<input id="raw-budget" class="raw-num" type="number" inputmode="numeric" aria-label="Budget in euros" value="450">}</div>
+          <div class="raw-line raw-spacer" aria-hidden="true"></div>
+          <button type="button" class="raw-line raw-check" data-item="0">- [<span class="raw-mark">x</span>] <span data-t="item0">Flight</span> · 180</button>
+          <button type="button" class="raw-line raw-check" data-item="1">- [<span class="raw-mark">x</span>] <span data-t="item1">Stay</span> · 195</button>
+          <button type="button" class="raw-line raw-check" data-item="2">- [<span class="raw-mark"> </span>] <span data-t="item2">Dinner</span> · 60</button>
+          <div class="raw-line raw-spacer" aria-hidden="true"></div>
+          <div class="raw-line"><span data-t="mdRemLbl">Remaining:</span> <strong>$remaining €</strong>  <span class="tok-out" id="raw-rem">→ 75 €</span></div>
+        </div>
+
+        <div class="note-pane note-pretty" id="pane-pretty" hidden>
+          <div class="pv-top">
+            <h2 class="pv-title" data-t="pvTitle">Lisbon Weekend</h2>
+            <label class="pv-budget-box">
+              <span data-t="pvBudgetLbl">Budget (€)</span>
+              <input id="pv-budget" class="pv-num" type="number" inputmode="numeric" value="450">
+            </label>
+          </div>
+
+          <div class="pv-tasks" role="group" aria-label="Trip checklist">
+            <button type="button" class="pv-task is-done" role="checkbox" aria-checked="true" data-item="0">
+              <span class="pv-task-left">
+                <span class="pv-box" aria-hidden="true">✓</span>
+                <span class="pv-name" data-t="item0">Flight</span>
+              </span>
+              <span class="pv-cost">180 €</span>
+            </button>
+            <button type="button" class="pv-task is-done" role="checkbox" aria-checked="true" data-item="1">
+              <span class="pv-task-left">
+                <span class="pv-box" aria-hidden="true">✓</span>
+                <span class="pv-name" data-t="item1">Stay</span>
+              </span>
+              <span class="pv-cost">195 €</span>
+            </button>
+            <button type="button" class="pv-task" role="checkbox" aria-checked="false" data-item="2">
+              <span class="pv-task-left">
+                <span class="pv-box" aria-hidden="true"></span>
+                <span class="pv-name" data-t="item2">Dinner</span>
+              </span>
+              <span class="pv-cost">60 €</span>
+            </button>
+          </div>
+
+          <div class="pv-summary">
+            <span class="pv-spent" id="pv-spent">Spent 375 €</span>
+            <span class="pv-rem is-ok" id="pv-rem">Remaining 75 €</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-foot">
+        <span class="note-hint" id="note-hint" data-t="hintRaw">Edit budget or check items, then switch to Pretty</span>
+        <button type="button" class="note-reset" id="note-reset" data-t="resetBtn" hidden>Reset</button>
       </div>
     </div>
 
@@ -176,30 +146,36 @@
 
 <script>
 (function () {
+  var costs = [180, 195, 60];
+  var state = {
+    lang: "en",
+    theme: "dark",
+    view: "raw",
+    budget: 450,
+    checked: [true, true, false]
+  };
+
   var copy = {
     en: {
       pageTitle: "Noteelus · Coming soon",
       h1: "Plain text, quietly <em>coming alive</em>.",
       lede: "A local-first note workspace for macOS, Windows, Android and iOS. Live Markdown formulas, offline 3D journey globes, Spaces and client-side encrypted vaults. No account. No server.",
       platforms: "Coming soon for macOS · Windows · Android · iOS",
-      modeRaw: "Markdown",
-      modeSplit: "Split",
-      modePretty: "Pretty",
-      pvTitle: "Autumn Trip & Budget",
-      pvMeta: "Live · Offline",
-      pvBudgetK: "Budget · Expenses",
-      pvBudgetV: "2,200 limit",
-      pvSpent: "1,693 spent",
-      pvRem: "507 remaining",
-      pvMapK: "Offline 3D Globe",
-      pvRoute: "Paris → Kyoto → Seoul",
-      pvVaultK: "Private Vault Container",
-      pvVaultV: "Sealed locally & on Google Drive",
-      rawH: "# Autumn Trip & Budget",
-      rawBudgetLbl: "Budget",
-      rawVaultLbl: "Private",
-      rawVaultOut: "· sealed locally & on Drive",
-      wipeHint: "Drag across the card or click Markdown / Pretty to reveal",
+      viewRaw: "Markdown",
+      viewPretty: "Pretty",
+      mdTitle: "# Lisbon Weekend",
+      mdBudgetLbl: "Budget (€)",
+      mdRemLbl: "Remaining:",
+      pvTitle: "Lisbon Weekend",
+      pvBudgetLbl: "Budget (€)",
+      item0: "Flight",
+      item1: "Stay",
+      item2: "Dinner",
+      spentPrefix: "Spent",
+      remPrefix: "Remaining",
+      hintRaw: "Edit budget or check items, then switch to Pretty",
+      hintPretty: "Toggle items or adjust budget, switch back to Markdown",
+      resetBtn: "Reset",
       cta1: "Follow on GitHub",
       cta2: "Privacy & Architecture",
       f1: "Privacy Policy",
@@ -214,24 +190,21 @@
       h1: "Le texte brut, prêt à <em>prendre vie</em>.",
       lede: "Un carnet local-first pour macOS, Windows, Android et iOS. Formules Markdown en direct, globes 3D hors-ligne, Espaces et coffres chiffrés côté client. Sans compte. Sans serveur.",
       platforms: "Bientôt disponible sur macOS · Windows · Android · iOS",
-      modeRaw: "Markdown",
-      modeSplit: "Divisé",
-      modePretty: "Rendu",
-      pvTitle: "Budget & Voyage d'automne",
-      pvMeta: "En direct · Hors-ligne",
-      pvBudgetK: "Budget · Dépenses",
-      pvBudgetV: "Plafond 2 200",
-      pvSpent: "1 693 dépensés",
-      pvRem: "507 restants",
-      pvMapK: "Globe 3D hors-ligne",
-      pvRoute: "Paris → Kyoto → Séoul",
-      pvVaultK: "Coffre privé chiffré",
-      pvVaultV: "Scellé en local et sur Google Drive",
-      rawH: "# Budget & Voyage d'automne",
-      rawBudgetLbl: "Budget",
-      rawVaultLbl: "Privé",
-      rawVaultOut: "· scellé en local & sur Drive",
-      wipeHint: "Glissez sur la carte ou cliquez sur Markdown / Rendu",
+      viewRaw: "Markdown",
+      viewPretty: "Rendu",
+      mdTitle: "# Week-end à Lisbonne",
+      mdBudgetLbl: "Budget (€)",
+      mdRemLbl: "Restant :",
+      pvTitle: "Week-end à Lisbonne",
+      pvBudgetLbl: "Budget (€)",
+      item0: "Vol",
+      item1: "Logement",
+      item2: "Dîner",
+      spentPrefix: "Dépensé",
+      remPrefix: "Restant",
+      hintRaw: "Modifiez le budget ou cochez une ligne, puis passez en Rendu",
+      hintPretty: "Cochez ou ajustez le budget, revenez voir le Markdown",
+      resetBtn: "Réinit.",
       cta1: "Suivre sur GitHub",
       cta2: "Confidentialité & Architecture",
       f1: "Confidentialité",
@@ -243,70 +216,77 @@
     }
   };
 
-  var stage = document.getElementById("curtain-stage");
-  var handle = document.getElementById("curtain-handle");
-  var pctEl = document.getElementById("curtain-pct");
-  var curPos = 52;
+  var rawPane = document.getElementById("pane-raw");
+  var prettyPane = document.getElementById("pane-pretty");
+  var rawBudget = document.getElementById("raw-budget");
+  var pvBudget = document.getElementById("pv-budget");
+  var rawRem = document.getElementById("raw-rem");
+  var pvSpent = document.getElementById("pv-spent");
+  var pvRem = document.getElementById("pv-rem");
+  var hintEl = document.getElementById("note-hint");
+  var resetEl = document.getElementById("note-reset");
 
-  function setCurtain(pct) {
-    var clamped = Math.max(0, Math.min(100, Math.round(pct)));
-    curPos = clamped;
-    if (stage) stage.style.setProperty("--pos", clamped + "%");
-    if (handle) handle.setAttribute("aria-valuenow", String(clamped));
-    if (pctEl) pctEl.textContent = clamped + "%";
-    document.querySelectorAll(".curtain-modes button").forEach(function (b) {
-      var snap = parseInt(b.getAttribute("data-snap"), 10);
-      var match = (snap === 100 && clamped >= 95) ||
-                  (snap === 0 && clamped <= 5) ||
-                  (snap === 52 && clamped > 5 && clamped < 95);
-      b.setAttribute("aria-pressed", match ? "true" : "false");
-    });
+  function isDirty() {
+    return state.budget !== 450 ||
+      state.checked[0] !== true ||
+      state.checked[1] !== true ||
+      state.checked[2] !== false;
   }
 
-  if (stage) {
-    var dragging = false;
-    function updateFromClientX(clientX) {
-      var rect = stage.getBoundingClientRect();
-      if (rect.width <= 0) return;
-      setCurtain(((clientX - rect.left) / rect.width) * 100);
+  function syncValues(fromSource) {
+    var d = copy[state.lang];
+    var spent = 0;
+    for (var i = 0; i < costs.length; i++) {
+      if (state.checked[i]) spent += costs[i];
     }
-    stage.addEventListener("pointerdown", function (e) {
-      dragging = true;
-      stage.classList.add("is-dragging");
-      if (stage.setPointerCapture) stage.setPointerCapture(e.pointerId);
-      updateFromClientX(e.clientX);
+    var rem = state.budget - spent;
+    var ok = rem >= 0;
+
+    if (rawBudget && fromSource !== "raw") rawBudget.value = String(state.budget);
+    if (pvBudget && fromSource !== "pv") pvBudget.value = String(state.budget);
+
+    document.querySelectorAll(".raw-check").forEach(function (btn) {
+      var idx = parseInt(btn.getAttribute("data-item"), 10);
+      var on = !!state.checked[idx];
+      var mark = btn.querySelector(".raw-mark");
+      if (mark) mark.textContent = on ? "x" : " ";
     });
-    stage.addEventListener("pointermove", function (e) {
-      if (!dragging) return;
-      updateFromClientX(e.clientX);
+
+    document.querySelectorAll(".pv-task").forEach(function (btn) {
+      var idx = parseInt(btn.getAttribute("data-item"), 10);
+      var on = !!state.checked[idx];
+      btn.setAttribute("aria-checked", on ? "true" : "false");
+      btn.classList.toggle("is-done", on);
+      var box = btn.querySelector(".pv-box");
+      if (box) box.textContent = on ? "✓" : "";
     });
-    var endDrag = function () {
-      if (!dragging) return;
-      dragging = false;
-      stage.classList.remove("is-dragging");
-    };
-    stage.addEventListener("pointerup", endDrag);
-    stage.addEventListener("pointercancel", endDrag);
+
+    if (rawRem) {
+      rawRem.textContent = "→ " + rem + " €";
+      rawRem.classList.toggle("is-warn", !ok);
+    }
+    if (pvSpent) pvSpent.textContent = d.spentPrefix + " " + spent + " €";
+    if (pvRem) {
+      pvRem.textContent = d.remPrefix + " " + rem + " €";
+      pvRem.classList.toggle("is-ok", ok);
+      pvRem.classList.toggle("is-warn", !ok);
+    }
+    if (resetEl) resetEl.hidden = !isDirty();
   }
 
-  if (handle) {
-    handle.addEventListener("keydown", function (e) {
-      var step = e.shiftKey ? 10 : 5;
-      if (e.key === "ArrowLeft") { setCurtain(curPos - step); e.preventDefault(); }
-      else if (e.key === "ArrowRight") { setCurtain(curPos + step); e.preventDefault(); }
-      else if (e.key === "Home") { setCurtain(0); e.preventDefault(); }
-      else if (e.key === "End") { setCurtain(100); e.preventDefault(); }
+  function setView(v) {
+    state.view = v === "pretty" ? "pretty" : "raw";
+    if (rawPane) rawPane.hidden = state.view !== "raw";
+    if (prettyPane) prettyPane.hidden = state.view !== "pretty";
+    document.querySelectorAll(".view-tabs button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-view") === state.view ? "true" : "false");
     });
+    var d = copy[state.lang];
+    if (hintEl) hintEl.textContent = state.view === "pretty" ? d.hintPretty : d.hintRaw;
   }
-
-  document.querySelectorAll(".curtain-modes button").forEach(function (b) {
-    b.addEventListener("click", function () {
-      if (stage) stage.classList.remove("is-dragging");
-      setCurtain(parseInt(b.getAttribute("data-snap"), 10));
-    });
-  });
 
   function setTheme(t) {
+    state.theme = t;
     if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
     else document.documentElement.removeAttribute("data-theme");
     try { localStorage.setItem("noteelus_teaser_theme", t); } catch (_) {}
@@ -314,17 +294,17 @@
     var lbl = document.getElementById("theme-lbl");
     if (btn) btn.setAttribute("aria-pressed", t === "dark" ? "true" : "false");
     if (lbl) {
-      var d = copy[document.documentElement.lang === "fr" ? "fr" : "en"];
+      var d = copy[state.lang];
       lbl.textContent = t === "dark" ? d.light : d.dark;
     }
   }
 
   function setLang(l) {
-    var lang = l === "fr" ? "fr" : "en";
-    var d = copy[lang];
-    document.documentElement.lang = lang;
+    state.lang = l === "fr" ? "fr" : "en";
+    var d = copy[state.lang];
+    document.documentElement.lang = state.lang;
     document.title = d.pageTitle;
-    try { localStorage.setItem("noteelus_teaser_lang", lang); } catch (_) {}
+    try { localStorage.setItem("noteelus_teaser_lang", state.lang); } catch (_) {}
     document.querySelectorAll("[data-t]").forEach(function (el) {
       var k = el.getAttribute("data-t");
       if (d[k] !== undefined) el.textContent = d[k];
@@ -334,9 +314,42 @@
       if (d[k] !== undefined) el.innerHTML = d[k];
     });
     document.querySelectorAll(".lang-toggle button").forEach(function (b) {
-      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === state.lang ? "true" : "false");
     });
-    setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
+    setTheme(state.theme);
+    setView(state.view);
+    syncValues();
+  }
+
+  document.querySelectorAll(".view-tabs button").forEach(function (b) {
+    b.addEventListener("click", function () { setView(b.getAttribute("data-view")); });
+  });
+
+  function bindBudgetInput(el, source) {
+    if (!el) return;
+    el.addEventListener("input", function () {
+      var n = parseInt(el.value, 10);
+      state.budget = isNaN(n) ? 0 : Math.max(-99999, Math.min(99999, n));
+      syncValues(source);
+    });
+  }
+  bindBudgetInput(rawBudget, "raw");
+  bindBudgetInput(pvBudget, "pv");
+
+  document.querySelectorAll(".raw-check, .pv-task").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var idx = parseInt(btn.getAttribute("data-item"), 10);
+      state.checked[idx] = !state.checked[idx];
+      syncValues();
+    });
+  });
+
+  if (resetEl) {
+    resetEl.addEventListener("click", function () {
+      state.budget = 450;
+      state.checked = [true, true, false];
+      syncValues();
+    });
   }
 
   var savedT = "dark";
@@ -344,7 +357,7 @@
     var st = localStorage.getItem("noteelus_teaser_theme");
     if (st === "light" || st === "dark") savedT = st;
   } catch (_) {}
-  setTheme(savedT);
+  state.theme = savedT;
 
   var qLang = new URLSearchParams(window.location.search).get("lang");
   var savedL = qLang === "fr" || qLang === "en" ? qLang : "en";
@@ -354,12 +367,12 @@
       if (sl === "fr" || sl === "en") savedL = sl;
     }
   } catch (_) {}
+
   setLang(savedL);
-  setCurtain(52);
 
   var tb = document.getElementById("theme-btn");
   if (tb) tb.addEventListener("click", function () {
-    setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    setTheme(state.theme === "dark" ? "light" : "dark");
   });
   document.querySelectorAll(".lang-toggle button").forEach(function (b) {
     b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
