@@ -13,8 +13,8 @@
   --blue: #1985F6;
   --blue-soft: rgba(25, 133, 246, .10);
   --green: #2F9E44;
-  --serif: "New York", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+  --serif: "New York", "Iowan Old Style", "Palatino Linotype", Georgia, "Songti SC", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
   color-scheme: light;
 }
@@ -51,7 +51,7 @@ body {
   background-size: 28px 28px;
 }
 a { color: inherit; }
-button, input { font: inherit; color: inherit; }
+button, input, select { font: inherit; color: inherit; }
 
 :focus-visible {
   outline: 2px solid var(--blue);
@@ -80,9 +80,10 @@ button, input { font: inherit; color: inherit; }
   font-weight: 700;
   font-size: 17px;
   letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 .brand img { width: 28px; height: 28px; border-radius: 7px; }
-.tools { display: flex; align-items: center; gap: 10px; }
+.tools { display: flex; align-items: center; gap: 8px; min-width: 0; }
 
 .icon-btn {
   display: inline-flex;
@@ -96,31 +97,89 @@ button, input { font: inherit; color: inherit; }
   font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
 }
 .icon-btn:hover { border-color: var(--ink); }
-.icon-btn svg { width: 15px; height: 15px; display: block; }
+.icon-btn svg { width: 15px; height: 15px; display: block; flex-shrink: 0; }
 
-.lang-toggle {
+.lang-menu {
+  position: relative;
   display: inline-flex;
-  border: 1px solid var(--rule-strong);
-  border-radius: 8px;
-  background: var(--surface);
-  overflow: hidden;
+  align-items: center;
 }
-.lang-toggle button {
-  border: 0;
-  background: transparent;
+.lang-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
   padding: 0 9px;
-  height: 32px;
-  font-size: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 12.5px;
   font-weight: 600;
-  color: var(--muted);
+  line-height: 1.2;
+  white-space: nowrap;
   cursor: pointer;
 }
-.lang-toggle button[aria-pressed="true"] {
-  background: var(--ink);
-  color: var(--bg);
+.lang-trigger:hover { border-color: var(--ink); }
+.lang-globe {
+  width: 14px;
+  height: 14px;
+  color: var(--muted);
+  flex-shrink: 0;
+  pointer-events: none;
 }
+.lang-name-short { display: none; }
+.lang-caret {
+  width: 12px;
+  height: 12px;
+  color: var(--muted);
+  flex-shrink: 0;
+  pointer-events: none;
+  transition: transform .15s;
+}
+.lang-trigger[aria-expanded="true"] .lang-caret { transform: rotate(180deg); }
+.lang-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 60;
+  min-width: 196px;
+  padding: 5px;
+  border-radius: 12px;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  box-shadow: 0 18px 40px -12px rgba(15, 20, 32, .25);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.lang-popover[hidden] { display: none; }
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.lang-option:hover, .lang-option:focus-visible { background: var(--surface-alt); }
+.lang-option[aria-selected="true"] {
+  font-weight: 700;
+  color: var(--coral);
+}
+.lang-check { opacity: 0; font-size: 12px; }
+.lang-option[aria-selected="true"] .lang-check { opacity: 1; }
 
 .gh-link {
   display: inline-flex;
@@ -132,6 +191,7 @@ button, input { font: inherit; color: inherit; }
   border: 1px solid var(--rule-strong);
   background: var(--surface);
   color: var(--ink);
+  flex-shrink: 0;
 }
 .gh-link:hover { border-color: var(--ink); }
 .gh-link svg { width: 17px; height: 17px; display: block; }
@@ -527,7 +587,13 @@ footer {
 
 @media (max-width: 600px) {
   main { padding: 20px 16px 24px; }
-  .topbar-inner { padding: 10px 16px; }
+  .topbar-inner { padding: 10px 14px; gap: 10px; }
+  .tools { gap: 6px; }
+  .icon-btn { width: 34px; padding: 0; justify-content: center; }
+  #theme-lbl { display: none; }
+  .lang-trigger { padding: 0 8px; gap: 5px; font-size: 12px; }
+  .lang-name-full { display: none; }
+  .lang-name-short { display: inline; }
   .emblem { width: 50px; height: 50px; }
   .dot-row { display: none; }
   .note-bar { padding: 8px 12px; }
