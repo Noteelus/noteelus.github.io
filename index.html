@@ -3,18 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Noteelus — Coming soon</title>
-<meta name="description" content="Noteelus is a local-first Markdown notebook for macOS, Windows, Android and iOS — live formulas, offline 3D travel maps, Spaces and client-side encrypted vaults. Coming soon.">
+<title>Noteelus · Coming soon</title>
+<meta name="description" content="Noteelus is a local-first Markdown notebook for macOS, Windows, Android and iOS: live formulas, offline 3D travel maps, Spaces and client-side encrypted vaults. Coming soon.">
 <link rel="canonical" href="https://noteelus.github.io/">
 <link rel="icon" type="image/png" href="/assets/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/icon-256.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Noteelus">
-<meta property="og:title" content="Noteelus — Plain text, quietly coming alive.">
-<meta property="og:description" content="Local-first notes with live Markdown formulas, offline 3D maps, Spaces and encrypted vaults. In active beta, coming soon.">
+<meta property="og:title" content="Noteelus · Plain text, quietly coming alive.">
+<meta property="og:description" content="Local-first notes with live Markdown formulas, offline 3D maps, Spaces and encrypted vaults. Coming soon.">
 <meta property="og:image" content="https://noteelus.github.io/assets/icon-512.png">
 <meta property="og:url" content="https://noteelus.github.io/">
-<link rel="stylesheet" href="/assets/teaser.css?v=1">
+<script>
+(function(){try{if(localStorage.getItem("noteelus_teaser_theme")!=="light")document.documentElement.setAttribute("data-theme","dark");}catch(_){document.documentElement.setAttribute("data-theme","dark");}})();
+</script>
+<link rel="stylesheet" href="/assets/teaser.css?v=3">
 </head>
 <body>
 
@@ -25,9 +28,9 @@
       <span>Noteelus</span>
     </a>
     <div class="tools">
-      <button type="button" class="icon-btn" id="theme-btn" aria-pressed="false" title="Toggle Dark Ink / Light Paper">
+      <button type="button" class="icon-btn" id="theme-btn" aria-pressed="true" title="Toggle Dark Ink / Light Paper">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.5v1.3M8 13.2v1.3M1.5 8h1.3M13.2 8h1.3M3.4 3.4l.9.9M11.7 11.7l.9.9M12.6 3.4l-.9.9M4.3 11.7l-.9.9"/></svg>
-        <span id="theme-lbl">Dark</span>
+        <span id="theme-lbl">Light</span>
       </button>
       <div class="lang-toggle" role="group" aria-label="Language">
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
@@ -42,36 +45,115 @@
 
 <main>
   <section class="stage">
-    <img class="emblem" src="/assets/icon-256.png" width="68" height="68" alt="Noteelus app icon">
-    <div>
-      <span class="status-pill"><i class="status-dot" aria-hidden="true"></i> <span data-t="pill">IN ACTIVE DEVELOPMENT · COMING SOON</span></span>
-    </div>
+    <img class="emblem" src="/assets/icon-256.png" width="56" height="56" alt="Noteelus app icon">
 
     <h1 data-th="h1">Plain text, quietly <em>coming alive</em>.</h1>
-    <p class="lede" data-t="lede">A local-first note workspace for macOS, Windows, Android and iOS — live Markdown formulas, offline 3D journey globes, Spaces and client-side encrypted vaults. No account. No server.</p>
+    <p class="lede" data-t="lede">A local-first note workspace for macOS, Windows, Android and iOS. Live Markdown formulas, offline 3D journey globes, Spaces and client-side encrypted vaults. No account. No server.</p>
+    <p class="platforms-line" data-t="platforms">Coming soon for macOS · Windows · Android · iOS</p>
 
-    <div class="syntax-teaser" aria-label="Noteelus syntax preview">
-      <div class="syntax-bar">
-        <span>notes/horizon.md</span>
-        <span class="dot-row" aria-hidden="true">
-          <i style="background:#FF8169"></i>
-          <i style="background:#5A90CC"></i>
-          <i style="background:#A594F0"></i>
-        </span>
+    <div class="curtain-card" aria-label="Interactive comparison of Markdown syntax and Pretty preview">
+      <div class="curtain-bar">
+        <div class="curtain-file">
+          <span class="dot-row" aria-hidden="true">
+            <i style="background:#FF8169"></i>
+            <i style="background:#5A90CC"></i>
+            <i style="background:#A594F0"></i>
+          </span>
+          <span>notes/horizon.md</span>
+        </div>
+        <div class="curtain-modes" role="group" aria-label="Preview wipe presets">
+          <button type="button" data-snap="100" aria-pressed="false" data-t="modeRaw">Markdown</button>
+          <button type="button" data-snap="52" aria-pressed="true" data-t="modeSplit">Split</button>
+          <button type="button" data-snap="0" aria-pressed="false" data-t="modePretty">Pretty</button>
+        </div>
       </div>
-      <pre class="syntax-code"><span class="tok-h"># Autumn Trip &amp; Budget</span>
-<span class="tok-v">::var</span>[Budget]{limit=2200}  <span class="tok-c">·  =sum(expenses.spent)</span> <span class="tok-out">→ 1693</span>
-<span class="tok-v">```map-3d</span> {style=dots color=orange}  <span class="tok-c">- Paris → Kyoto → Seoul</span>
-<span class="tok-v">::vault</span>[Private] {cipher=client-side} <span class="tok-out">· sealed locally &amp; on Drive</span></pre>
-    </div>
 
-    <div class="chips" aria-label="Planned platforms">
-      <span class="chip">macOS</span>
-      <span class="chip">Windows</span>
-      <span class="chip">Android</span>
-      <span class="chip">iOS (later)</span>
-      <span class="chip" data-t="chip5">Offline-first</span>
-      <span class="chip" data-t="chip6">Optional Google Drive sync</span>
+      <div class="curtain-stage" id="curtain-stage">
+        <div class="curtain-pretty">
+          <div class="pretty-head">
+            <span class="pretty-title" data-t="pvTitle">Autumn Trip &amp; Budget</span>
+            <span class="pretty-meta" data-t="pvMeta">Live · Offline</span>
+          </div>
+
+          <div class="pretty-rows">
+            <div class="pretty-row">
+              <div class="pretty-row-text">
+                <div class="pretty-k" data-t="pvBudgetK">Budget · Expenses</div>
+                <div class="pretty-v">
+                  <strong data-t="pvBudgetV">2,200 limit</strong>
+                  <span class="sep">·</span>
+                  <span data-t="pvSpent">1,693 spent</span>
+                  <span class="sep">·</span>
+                  <span class="ok" data-t="pvRem">507 remaining</span>
+                </div>
+              </div>
+              <svg class="mini-bars" viewBox="0 0 68 34" aria-hidden="true">
+                <line x1="2" y1="31" x2="66" y2="31" stroke="currentColor" stroke-opacity=".18" stroke-width="1"/>
+                <rect x="6" y="5" width="7" height="25" rx="2" fill="var(--blue)"/>
+                <rect x="15" y="5" width="7" height="25" rx="2" fill="var(--coral)"/>
+                <rect x="28" y="13" width="7" height="17" rx="2" fill="var(--blue)"/>
+                <rect x="37" y="15" width="7" height="15" rx="2" fill="var(--coral)"/>
+                <rect x="50" y="21" width="7" height="9" rx="2" fill="var(--blue)"/>
+                <rect x="59" y="18" width="7" height="12" rx="2" fill="var(--coral)"/>
+              </svg>
+            </div>
+
+            <div class="pretty-row">
+              <div class="pretty-row-text">
+                <div class="pretty-k" data-t="pvMapK">Offline 3D Globe</div>
+                <div class="pretty-v">
+                  <strong data-t="pvRoute">Paris → Kyoto → Seoul</strong>
+                  <span class="sep">·</span>
+                  <span>10,923 km</span>
+                </div>
+              </div>
+              <svg class="mini-globe" viewBox="0 0 36 36" aria-hidden="true">
+                <circle cx="18" cy="18" r="15.5" fill="var(--surface-alt)" stroke="currentColor" stroke-opacity=".2" stroke-width="1"/>
+                <circle cx="11" cy="13" r="1" fill="currentColor" fill-opacity=".35"/>
+                <circle cx="15" cy="11" r="1" fill="currentColor" fill-opacity=".35"/>
+                <circle cx="19" cy="13" r="1" fill="currentColor" fill-opacity=".35"/>
+                <circle cx="24" cy="15" r="1" fill="currentColor" fill-opacity=".35"/>
+                <circle cx="26" cy="20" r="1" fill="currentColor" fill-opacity=".35"/>
+                <circle cx="14" cy="21" r="1" fill="currentColor" fill-opacity=".3"/>
+                <circle cx="18" cy="25" r="1" fill="currentColor" fill-opacity=".3"/>
+                <path d="M9.5 14.5 Q 18 7 26.5 18.5" fill="none" stroke="var(--coral)" stroke-width="1.6" stroke-dasharray="2.5 2"/>
+                <circle cx="9.5" cy="14.5" r="2.2" fill="var(--coral)"/>
+                <circle cx="22.5" cy="14" r="1.8" fill="var(--coral)"/>
+                <circle cx="26.5" cy="18.5" r="2.4" fill="var(--coral)"/>
+              </svg>
+            </div>
+
+            <div class="pretty-row">
+              <div class="pretty-row-text">
+                <div class="pretty-k" data-t="pvVaultK">Private Vault Container</div>
+                <div class="pretty-v">
+                  <span class="ok" data-t="pvVaultV">Sealed locally &amp; on Google Drive</span>
+                </div>
+              </div>
+              <svg class="mini-lock" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4.5" y="10.5" width="15" height="9.5" rx="2.5"/>
+                <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="curtain-raw" aria-hidden="true">
+          <pre class="curtain-code"><span class="tok-h" data-t="rawH"># Autumn Trip &amp; Budget</span>
+<span class="tok-v">::var</span>[<span data-t="rawBudgetLbl">Budget</span>]{limit=2200}  <span class="tok-c">·  =sum(expenses.spent)</span> <span class="tok-out">→ 1693</span>
+<span class="tok-v">```map-3d</span> {style=dots color=orange}  <span class="tok-c">- Paris → Kyoto → Seoul</span>
+<span class="tok-v">::vault</span>[<span data-t="rawVaultLbl">Private</span>] {cipher=client-side} <span class="tok-out" data-t="rawVaultOut">· sealed locally &amp; on Drive</span></pre>
+        </div>
+
+        <div class="curtain-beam" id="curtain-handle" role="slider" tabindex="0" aria-label="Wipe between raw Markdown and Pretty preview" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52">
+          <span class="curtain-knob" aria-hidden="true">‹ ›</span>
+        </div>
+      </div>
+
+      <div class="curtain-foot">
+        <span data-t="wipeHint">Drag across the card or click Markdown / Pretty to reveal</span>
+        <span class="curtain-pct" id="curtain-pct">52%</span>
+      </div>
     </div>
 
     <div class="actions">
@@ -96,32 +178,133 @@
 (function () {
   var copy = {
     en: {
-      pill: "IN ACTIVE DEVELOPMENT · COMING SOON",
+      pageTitle: "Noteelus · Coming soon",
       h1: "Plain text, quietly <em>coming alive</em>.",
-      lede: "A local-first note workspace for macOS, Windows, Android and iOS — live Markdown formulas, offline 3D journey globes, Spaces and client-side encrypted vaults. No account. No server.",
-      chip5: "Offline-first",
-      chip6: "Optional Google Drive sync",
+      lede: "A local-first note workspace for macOS, Windows, Android and iOS. Live Markdown formulas, offline 3D journey globes, Spaces and client-side encrypted vaults. No account. No server.",
+      platforms: "Coming soon for macOS · Windows · Android · iOS",
+      modeRaw: "Markdown",
+      modeSplit: "Split",
+      modePretty: "Pretty",
+      pvTitle: "Autumn Trip & Budget",
+      pvMeta: "Live · Offline",
+      pvBudgetK: "Budget · Expenses",
+      pvBudgetV: "2,200 limit",
+      pvSpent: "1,693 spent",
+      pvRem: "507 remaining",
+      pvMapK: "Offline 3D Globe",
+      pvRoute: "Paris → Kyoto → Seoul",
+      pvVaultK: "Private Vault Container",
+      pvVaultV: "Sealed locally & on Google Drive",
+      rawH: "# Autumn Trip & Budget",
+      rawBudgetLbl: "Budget",
+      rawVaultLbl: "Private",
+      rawVaultOut: "· sealed locally & on Drive",
+      wipeHint: "Drag across the card or click Markdown / Pretty to reveal",
       cta1: "Follow on GitHub",
       cta2: "Privacy & Architecture",
       f1: "Privacy Policy",
       f2: "Terms of Use",
       f3: "Third-Party Notices",
-      f4: "Issues"
+      f4: "Issues",
+      dark: "Dark",
+      light: "Light"
     },
     fr: {
-      pill: "EN DÉVELOPPEMENT ACTIF · BIENTÔT DISPONIBLE",
+      pageTitle: "Noteelus · Bientôt disponible",
       h1: "Le texte brut, prêt à <em>prendre vie</em>.",
-      lede: "Un carnet local-first pour macOS, Windows, Android et iOS — formules Markdown en direct, globes 3D hors-ligne, Espaces et coffres chiffrés côté client. Sans compte. Sans serveur.",
-      chip5: "Hors-ligne d'abord",
-      chip6: "Synchro Google Drive optionnelle",
+      lede: "Un carnet local-first pour macOS, Windows, Android et iOS. Formules Markdown en direct, globes 3D hors-ligne, Espaces et coffres chiffrés côté client. Sans compte. Sans serveur.",
+      platforms: "Bientôt disponible sur macOS · Windows · Android · iOS",
+      modeRaw: "Markdown",
+      modeSplit: "Divisé",
+      modePretty: "Rendu",
+      pvTitle: "Budget & Voyage d'automne",
+      pvMeta: "En direct · Hors-ligne",
+      pvBudgetK: "Budget · Dépenses",
+      pvBudgetV: "Plafond 2 200",
+      pvSpent: "1 693 dépensés",
+      pvRem: "507 restants",
+      pvMapK: "Globe 3D hors-ligne",
+      pvRoute: "Paris → Kyoto → Séoul",
+      pvVaultK: "Coffre privé chiffré",
+      pvVaultV: "Scellé en local et sur Google Drive",
+      rawH: "# Budget & Voyage d'automne",
+      rawBudgetLbl: "Budget",
+      rawVaultLbl: "Privé",
+      rawVaultOut: "· scellé en local & sur Drive",
+      wipeHint: "Glissez sur la carte ou cliquez sur Markdown / Rendu",
       cta1: "Suivre sur GitHub",
       cta2: "Confidentialité & Architecture",
       f1: "Confidentialité",
       f2: "Conditions d'utilisation",
       f3: "Licences tierces",
-      f4: "Issues"
+      f4: "Issues",
+      dark: "Sombre",
+      light: "Clair"
     }
   };
+
+  var stage = document.getElementById("curtain-stage");
+  var handle = document.getElementById("curtain-handle");
+  var pctEl = document.getElementById("curtain-pct");
+  var curPos = 52;
+
+  function setCurtain(pct) {
+    var clamped = Math.max(0, Math.min(100, Math.round(pct)));
+    curPos = clamped;
+    if (stage) stage.style.setProperty("--pos", clamped + "%");
+    if (handle) handle.setAttribute("aria-valuenow", String(clamped));
+    if (pctEl) pctEl.textContent = clamped + "%";
+    document.querySelectorAll(".curtain-modes button").forEach(function (b) {
+      var snap = parseInt(b.getAttribute("data-snap"), 10);
+      var match = (snap === 100 && clamped >= 95) ||
+                  (snap === 0 && clamped <= 5) ||
+                  (snap === 52 && clamped > 5 && clamped < 95);
+      b.setAttribute("aria-pressed", match ? "true" : "false");
+    });
+  }
+
+  if (stage) {
+    var dragging = false;
+    function updateFromClientX(clientX) {
+      var rect = stage.getBoundingClientRect();
+      if (rect.width <= 0) return;
+      setCurtain(((clientX - rect.left) / rect.width) * 100);
+    }
+    stage.addEventListener("pointerdown", function (e) {
+      dragging = true;
+      stage.classList.add("is-dragging");
+      if (stage.setPointerCapture) stage.setPointerCapture(e.pointerId);
+      updateFromClientX(e.clientX);
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      updateFromClientX(e.clientX);
+    });
+    var endDrag = function () {
+      if (!dragging) return;
+      dragging = false;
+      stage.classList.remove("is-dragging");
+    };
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+  }
+
+  if (handle) {
+    handle.addEventListener("keydown", function (e) {
+      var step = e.shiftKey ? 10 : 5;
+      if (e.key === "ArrowLeft") { setCurtain(curPos - step); e.preventDefault(); }
+      else if (e.key === "ArrowRight") { setCurtain(curPos + step); e.preventDefault(); }
+      else if (e.key === "Home") { setCurtain(0); e.preventDefault(); }
+      else if (e.key === "End") { setCurtain(100); e.preventDefault(); }
+    });
+  }
+
+  document.querySelectorAll(".curtain-modes button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (stage) stage.classList.remove("is-dragging");
+      setCurtain(parseInt(b.getAttribute("data-snap"), 10));
+    });
+  });
 
   function setTheme(t) {
     if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
@@ -131,15 +314,17 @@
     var lbl = document.getElementById("theme-lbl");
     if (btn) btn.setAttribute("aria-pressed", t === "dark" ? "true" : "false");
     if (lbl) {
-      var fr = document.documentElement.lang === "fr";
-      lbl.textContent = t === "dark" ? (fr ? "Clair" : "Light") : (fr ? "Sombre" : "Dark");
+      var d = copy[document.documentElement.lang === "fr" ? "fr" : "en"];
+      lbl.textContent = t === "dark" ? d.light : d.dark;
     }
   }
 
   function setLang(l) {
-    var d = copy[l] || copy.en;
-    document.documentElement.lang = l;
-    try { localStorage.setItem("noteelus_teaser_lang", l); } catch (_) {}
+    var lang = l === "fr" ? "fr" : "en";
+    var d = copy[lang];
+    document.documentElement.lang = lang;
+    document.title = d.pageTitle;
+    try { localStorage.setItem("noteelus_teaser_lang", lang); } catch (_) {}
     document.querySelectorAll("[data-t]").forEach(function (el) {
       var k = el.getAttribute("data-t");
       if (d[k] !== undefined) el.textContent = d[k];
@@ -149,19 +334,28 @@
       if (d[k] !== undefined) el.innerHTML = d[k];
     });
     document.querySelectorAll(".lang-toggle button").forEach(function (b) {
-      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false");
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
     });
     setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
   }
 
-  var savedT = "light";
-  try { if (localStorage.getItem("noteelus_teaser_theme") === "dark") savedT = "dark"; } catch (_) {}
+  var savedT = "dark";
+  try {
+    var st = localStorage.getItem("noteelus_teaser_theme");
+    if (st === "light" || st === "dark") savedT = st;
+  } catch (_) {}
   setTheme(savedT);
 
   var qLang = new URLSearchParams(window.location.search).get("lang");
   var savedL = qLang === "fr" || qLang === "en" ? qLang : "en";
-  try { if (!qLang) { var sl = localStorage.getItem("noteelus_teaser_lang"); if (sl === "fr" || sl === "en") savedL = sl; } } catch (_) {}
+  try {
+    if (!qLang) {
+      var sl = localStorage.getItem("noteelus_teaser_lang");
+      if (sl === "fr" || sl === "en") savedL = sl;
+    }
+  } catch (_) {}
   setLang(savedL);
+  setCurtain(52);
 
   var tb = document.getElementById("theme-btn");
   if (tb) tb.addEventListener("click", function () {
