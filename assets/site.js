@@ -125,11 +125,9 @@
       videos.forEach(function (v) { io.observe(v); });
     }
 
-    // Platform + Architecture Auto-Detection & GitHub Releases Loader (/ and /download/)
+    // Platform + Architecture Auto-Detection & GitHub Releases Loader (/download/)
     var detected = detectPlatformAndArch();
     var releaseState = { tag: null, assets: null };
-    var othersEl = document.getElementById("dl-others");
-    var hasAllHash = window.location.hash === "#all";
 
     function currentDict() {
       var lang = document.documentElement.lang || "en";
@@ -268,10 +266,6 @@
           s.hidden = !txt;
         }
       });
-
-      if (othersEl && fromInit) {
-        othersEl.open = !supported || hasAllHash;
-      }
     }
 
     if (document.getElementById("dl-primary-card")) {
