@@ -188,35 +188,6 @@
       var assets = releaseState.assets;
       var activeAsset = supported && assets ? assets[os] : null;
 
-      // Home landing page CTAs
-      var heroCta = document.getElementById("hero-dl-cta");
-      var closeCta = document.getElementById("close-dl-cta");
-      var heroMeta = document.getElementById("hero-release-meta");
-      if (heroCta) {
-        if (supported && d && d["dl." + k + ".btn"]) {
-          heroCta.textContent = d["dl." + k + ".btn"];
-        } else if (d && d["hero.cta"]) {
-          heroCta.textContent = d["hero.cta"];
-        }
-        heroCta.href = activeAsset && activeAsset.url ? activeAsset.url : "/download/";
-      }
-      if (closeCta) {
-        if (supported && d && d["dl." + k + ".btn"]) {
-          closeCta.textContent = d["dl." + k + ".btn"];
-        } else if (d && d["close.cta"]) {
-          closeCta.textContent = d["close.cta"];
-        }
-        closeCta.href = activeAsset && activeAsset.url ? activeAsset.url : "/download/";
-      }
-      if (heroMeta) {
-        if (supported && releaseState.tag) {
-          heroMeta.textContent = " · " + releaseState.tag + " · " + exts[os];
-          heroMeta.hidden = false;
-        } else {
-          heroMeta.hidden = true;
-        }
-      }
-
       // /download/ page single-focus card + subtle platform/arch picker
       var primaryCard = document.getElementById("dl-primary-card");
       if (!primaryCard) return;
@@ -303,8 +274,7 @@
       }
     }
 
-    var needsReleaseFetch = document.getElementById("hero-dl-cta") || document.getElementById("dl-primary-card");
-    if (needsReleaseFetch) {
+    if (document.getElementById("dl-primary-card")) {
       renderDownloadUi(true);
       document.addEventListener("noteelus:langchange", function () { renderDownloadUi(false); });
 
