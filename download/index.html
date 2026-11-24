@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download Noteelus</title>
+<meta name="description" content="Download Noteelus for macOS, Windows, and Android. Free, works offline, and needs no account.">
+<link rel="canonical" href="https://noteelus.github.io/download/">
+<link rel="icon" type="image/png" href="/assets/favicon-64.png?v=3">
+<link rel="apple-touch-icon" href="/assets/icon-256.png?v=3">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Noteelus">
+<meta property="og:title" content="Download Noteelus">
+<meta property="og:description" content="Pick your device: macOS (.pkg), Windows (.exe), or Android (.apk).">
+<meta property="og:image" content="https://noteelus.github.io/assets/og.png">
+<script>
+(function(){try{var s=localStorage.getItem("noteelus_theme");var d=s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.setAttribute("data-theme","dark");}catch(_){if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}})();
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <img src="/assets/icon-64.png?v=3" width="28" height="28" alt="">
+      <span>Noteelus</span>
+    </a>
+    <div class="tools">
+      <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="Dark" title="Toggle Light / Dark">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.5v1.3M8 13.2v1.3M1.5 8h1.3M13.2 8h1.3M3.4 3.4l.9.9M11.7 11.7l.9.9M12.6 3.4l-.9.9M4.3 11.7l-.9.9"/></svg>
+        <span data-theme-label>Dark</span>
+      </button>
+      <div class="lang-menu" data-lang-menu>
+        <button type="button" class="lang-trigger" data-lang-trigger aria-haspopup="listbox" aria-expanded="false" aria-label="Language" title="Language">
+          <svg class="lang-globe" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="3.1" ry="6.2"/><path d="M2 8h12M2.8 5h10.4M2.8 11h10.4"/></svg>
+          <span class="lang-name-full" data-lang-full>English</span>
+          <span class="lang-name-short" data-lang-short>EN</span>
+          <svg class="lang-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </button>
+        <div class="lang-popover" data-lang-popover role="listbox" aria-label="Language" hidden>
+          <button type="button" class="lang-option" role="option" data-lang-opt="en" aria-selected="true"><span>English</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="zh-CN" aria-selected="false"><span>简体中文</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="ru" aria-selected="false"><span>Русский</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="es" aria-selected="false"><span>Español</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="pt-BR" aria-selected="false"><span>Português (Brasil)</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="fr" aria-selected="false"><span>Français</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="tr" aria-selected="false"><span>Türkçe</span><span class="lang-check" aria-hidden="true">✓</span></button>
+        </div>
+      </div>
+      <a class="btn small" href="/download/" aria-current="page" data-i18n="nav.download">Download</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page-head">
+    <h1 data-i18n="dl.h1">Download Noteelus</h1>
+    <p data-i18n="dl.sub">Pick your device below. Free, offline, and no account required.</p>
+
+    <div class="os-banner">
+      <div class="os-banner-info">
+        <span class="os-badge" id="release-version" hidden></span>
+        <div style="font-size:15px">
+          <span style="color:var(--muted)" data-i18n="dl.rec">Your device:</span>
+          <strong id="detected-os-name">macOS (.pkg)</strong>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a class="btn" id="os-primary-cta" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="hero.cta">Download Free</a>
+        <a class="btn outline" href="https://github.com/Noteelus/noteelus.github.io/releases" data-i18n="dl.all">View all releases on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="matrix-grid">
+    <article class="os-card" data-os-card="mac">
+      <div class="os-card-head">
+        <h2>macOS</h2>
+        <span class="os-ext">.pkg</span>
+      </div>
+      <p data-i18n="dl.mac.desc">Works on Mac with Apple Silicon (M1 to M4).</p>
+      <a class="btn" id="dl-mac" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="dl.mac.btn">Download for macOS</a>
+      <details>
+        <summary data-i18n="dl.guide">First-launch help</summary>
+        <div data-i18n-html="dl.mac.guide">Open the <code>.pkg</code> installer. If macOS asks for permission, open <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>.</div>
+      </details>
+    </article>
+
+    <article class="os-card" data-os-card="win">
+      <div class="os-card-head">
+        <h2>Windows</h2>
+        <span class="os-ext">.exe</span>
+      </div>
+      <p data-i18n="dl.win.desc">Works on Windows 10 and Windows 11 (64-bit).</p>
+      <a class="btn" id="dl-win" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="dl.win.btn">Download for Windows</a>
+      <details>
+        <summary data-i18n="dl.guide">First-launch help</summary>
+        <div data-i18n-html="dl.win.guide">Open the <code>.exe</code> installer. If Windows SmartScreen appears, click <b>More info</b> → <b>Run anyway</b>.</div>
+      </details>
+    </article>
+
+    <article class="os-card" data-os-card="android">
+      <div class="os-card-head">
+        <h2>Android</h2>
+        <span class="os-ext">.apk</span>
+      </div>
+      <p data-i18n="dl.and.desc">Works on Android phones and tablets.</p>
+      <a class="btn" id="dl-android" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="dl.and.btn">Download for Android</a>
+      <details>
+        <summary data-i18n="dl.guide">First-launch help</summary>
+        <div data-i18n-html="dl.and.guide">Tap the downloaded <code>.apk</code> file on your Android device and allow install when asked.</div>
+      </details>
+    </article>
+  </section>
+
+  <div class="phone-tip" data-i18n-html="dl.tip">
+    <b>Already using Noteelus on Mac or Windows?</b> You can also send the Android app straight to your phone from <i>Settings → Install on my phone</i>.
+  </div>
+</main>
+
+<footer class="site-footer">
+  <nav class="foot-links">
+    <a href="/download/" data-i18n="nav.download">Download</a>
+    <a href="/release-notes/" data-i18n="nav.updates">Updates</a>
+    <a href="/privacy.html" data-i18n="foot.priv">Privacy Policy</a>
+    <a href="/terms.html" data-i18n="foot.terms">Terms of Use</a>
+    <a href="/THIRD_PARTY_NOTICES.md" data-i18n="foot.notices">Third-Party Notices</a>
+    <a href="https://github.com/Noteelus/noteelus.github.io">GitHub</a>
+    <a href="mailto:noteelus-support@googlegroups.com">noteelus-support@googlegroups.com</a>
+  </nav>
+  <div>© 2026 Noteelus</div>
+</footer>
+
+<script src="/assets/i18n.js?v=6"></script>
+<script src="/assets/site.js?v=6"></script>
+</body>
+</html>

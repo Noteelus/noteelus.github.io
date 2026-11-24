@@ -3,21 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Noteelus · Coming soon</title>
-<meta name="description" content="Noteelus is a local-first Markdown notebook for macOS, Windows, Android and iOS: live formulas, offline 3D travel maps, Spaces and client-side encrypted vaults. Coming soon.">
+<title>Noteelus · Plain text, quietly coming alive.</title>
+<meta name="description" content="A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.">
 <link rel="canonical" href="https://noteelus.github.io/">
 <link rel="icon" type="image/png" href="/assets/favicon-64.png?v=3">
 <link rel="apple-touch-icon" href="/assets/icon-256.png?v=3">
+<meta name="theme-color" content="#FAF9F5">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Noteelus">
 <meta property="og:title" content="Noteelus · Plain text, quietly coming alive.">
-<meta property="og:description" content="Local-first notes with live Markdown formulas, offline 3D maps, Spaces and encrypted vaults. Coming soon.">
-<meta property="og:image" content="https://noteelus.github.io/assets/icon-512.png?v=3">
+<meta property="og:description" content="A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.">
+<meta property="og:image" content="https://noteelus.github.io/assets/og.png?v=2">
 <meta property="og:url" content="https://noteelus.github.io/">
-<script>
-(function(){try{var s=localStorage.getItem("noteelus_teaser_theme");var d=s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.setAttribute("data-theme","dark");}catch(_){if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}})();
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Noteelus · Plain text, quietly coming alive.">
+<meta name="twitter:description" content="A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.">
+<meta name="twitter:image" content="https://noteelus.github.io/assets/og.png?v=2">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Noteelus",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "macOS, Windows, Android",
+  "description": "A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.",
+  "url": "https://noteelus.github.io/",
+  "downloadUrl": "https://noteelus.github.io/download/",
+  "image": "https://noteelus.github.io/assets/icon-512.png?v=3",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "Noteelus", "url": "https://noteelus.github.io/" }
+}
 </script>
-<link rel="stylesheet" href="/assets/teaser.css?v=6">
+<script>
+(function(){try{var s=localStorage.getItem("noteelus_theme");var d=s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.setAttribute("data-theme","dark");}catch(_){if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}})();
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=6">
 </head>
 <body>
 
@@ -28,616 +48,196 @@
       <span>Noteelus</span>
     </a>
     <div class="tools">
-      <button type="button" class="icon-btn" id="theme-btn" aria-pressed="false" aria-label="Dark" title="Toggle Light / Dark">
+      <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="Dark" title="Toggle Light / Dark">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.5v1.3M8 13.2v1.3M1.5 8h1.3M13.2 8h1.3M3.4 3.4l.9.9M11.7 11.7l.9.9M12.6 3.4l-.9.9M4.3 11.7l-.9.9"/></svg>
-        <span id="theme-lbl">Dark</span>
+        <span data-theme-label>Dark</span>
       </button>
-      <div class="lang-menu" id="lang-menu">
-        <button type="button" class="lang-trigger" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Language" title="Language">
+      <div class="lang-menu" data-lang-menu>
+        <button type="button" class="lang-trigger" data-lang-trigger aria-haspopup="listbox" aria-expanded="false" aria-label="Language" title="Language">
           <svg class="lang-globe" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="3.1" ry="6.2"/><path d="M2 8h12M2.8 5h10.4M2.8 11h10.4"/></svg>
-          <span class="lang-name-full" id="lang-full">English</span>
-          <span class="lang-name-short" id="lang-short">EN</span>
+          <span class="lang-name-full" data-lang-full>English</span>
+          <span class="lang-name-short" data-lang-short>EN</span>
           <svg class="lang-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
         </button>
-        <div class="lang-popover" id="lang-popover" role="listbox" aria-label="Language" hidden>
-          <button type="button" class="lang-option" role="option" data-lang="en" aria-selected="true"><span>English</span><span class="lang-check" aria-hidden="true">✓</span></button>
-          <button type="button" class="lang-option" role="option" data-lang="zh-CN" aria-selected="false"><span>简体中文</span><span class="lang-check" aria-hidden="true">✓</span></button>
-          <button type="button" class="lang-option" role="option" data-lang="ru" aria-selected="false"><span>Русский</span><span class="lang-check" aria-hidden="true">✓</span></button>
-          <button type="button" class="lang-option" role="option" data-lang="es" aria-selected="false"><span>Español</span><span class="lang-check" aria-hidden="true">✓</span></button>
-          <button type="button" class="lang-option" role="option" data-lang="pt-BR" aria-selected="false"><span>Português (Brasil)</span><span class="lang-check" aria-hidden="true">✓</span></button>
-          <button type="button" class="lang-option" role="option" data-lang="fr" aria-selected="false"><span>Français</span><span class="lang-check" aria-hidden="true">✓</span></button>
-          <button type="button" class="lang-option" role="option" data-lang="tr" aria-selected="false"><span>Türkçe</span><span class="lang-check" aria-hidden="true">✓</span></button>
+        <div class="lang-popover" data-lang-popover role="listbox" aria-label="Language" hidden>
+          <button type="button" class="lang-option" role="option" data-lang-opt="en" aria-selected="true"><span>English</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="zh-CN" aria-selected="false"><span>简体中文</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="ru" aria-selected="false"><span>Русский</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="es" aria-selected="false"><span>Español</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="pt-BR" aria-selected="false"><span>Português (Brasil)</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="fr" aria-selected="false"><span>Français</span><span class="lang-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="lang-option" role="option" data-lang-opt="tr" aria-selected="false"><span>Türkçe</span><span class="lang-check" aria-hidden="true">✓</span></button>
         </div>
       </div>
-      <a class="gh-link" href="https://github.com/Noteelus/noteelus.github.io" aria-label="Noteelus on GitHub" title="Noteelus on GitHub">
-        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      </a>
+      <a class="btn small" href="/download/" data-i18n="nav.download">Download</a>
     </div>
   </div>
 </header>
 
 <main>
-  <section class="stage">
-    <img class="emblem" src="/assets/icon-256.png?v=3" width="56" height="56" alt="Noteelus app icon">
-
-    <h1 data-th="h1">Plain text, quietly <em>coming alive</em>.</h1>
-    <p class="lede" data-t="lede">A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.</p>
-    <p class="platforms-line" data-t="platforms">Coming soon for macOS · Windows · Android · iOS</p>
-
-    <div class="note-card" aria-label="Interactive Noteelus Markdown and Pretty example">
-      <div class="note-bar">
-        <div class="note-file">
-          <span class="dot-row" aria-hidden="true">
-            <i style="background:#FF8169"></i>
-            <i style="background:#5A90CC"></i>
-            <i style="background:#A594F0"></i>
-          </span>
-          <span>notes/lisbon.md</span>
-        </div>
-        <div class="view-tabs" role="group" aria-label="Note view mode">
-          <button type="button" data-view="raw" aria-pressed="true" data-t="viewRaw">Markdown</button>
-          <button type="button" data-view="pretty" aria-pressed="false" data-t="viewPretty">Pretty</button>
-        </div>
+  <section class="hero">
+    <div class="wrap">
+      <img class="emblem" src="/assets/icon-256.png?v=3" width="56" height="56" alt="Noteelus app icon">
+      <h1 data-i18n-html="hero.title">Plain text, quietly <em>coming alive</em>.</h1>
+      <p class="lede" data-i18n="hero.sub">A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.</p>
+      <p class="platforms-line" data-i18n="hero.platforms">macOS · Windows · Android · iPhone coming soon</p>
+      <div class="actions">
+        <a class="btn" href="/download/" data-i18n="hero.cta">Download Free</a>
+        <a class="btn outline" href="#features" data-i18n="hero.explore">Explore features</a>
       </div>
 
-      <div class="note-body">
-        <div class="note-pane note-raw" id="pane-raw">
-          <div class="raw-line"><span class="tok-h" data-t="mdTitle"># Lisbon Weekend</span></div>
-          <div class="raw-line raw-spacer" aria-hidden="true"></div>
-          <div class="raw-line"><span class="tok-v">::var</span>[<span data-t="mdBudgetLbl">Budget (€)</span>]{budget=<input id="raw-budget" class="raw-num" type="number" inputmode="numeric" aria-label="Budget in euros" value="450">}</div>
-          <div class="raw-line raw-spacer" aria-hidden="true"></div>
-          <button type="button" class="raw-line raw-check" data-item="0">- [<span class="raw-mark">x</span>] <span data-t="item0">Flight</span> · 180</button>
-          <button type="button" class="raw-line raw-check" data-item="1">- [<span class="raw-mark">x</span>] <span data-t="item1">Stay</span> · 195</button>
-          <button type="button" class="raw-line raw-check" data-item="2">- [<span class="raw-mark"> </span>] <span data-t="item2">Dinner</span> · 60</button>
-          <div class="raw-line raw-spacer" aria-hidden="true"></div>
-          <div class="raw-line"><span data-t="mdRemLbl">Remaining:</span> <strong>$remaining €</strong>  <span class="tok-out" id="raw-rem">→ 75 €</span></div>
-        </div>
-
-        <div class="note-pane note-pretty" id="pane-pretty" hidden>
-          <div class="pv-top">
-            <h2 class="pv-title" data-t="pvTitle">Lisbon Weekend</h2>
-            <label class="pv-budget-box">
-              <span data-t="pvBudgetLbl">Budget (€)</span>
-              <input id="pv-budget" class="pv-num" type="number" inputmode="numeric" value="450">
-            </label>
-          </div>
-
-          <div class="pv-tasks" role="group" aria-label="Trip checklist">
-            <button type="button" class="pv-task is-done" role="checkbox" aria-checked="true" data-item="0">
-              <span class="pv-task-left">
-                <span class="pv-box" aria-hidden="true">✓</span>
-                <span class="pv-name" data-t="item0">Flight</span>
-              </span>
-              <span class="pv-cost">180 €</span>
-            </button>
-            <button type="button" class="pv-task is-done" role="checkbox" aria-checked="true" data-item="1">
-              <span class="pv-task-left">
-                <span class="pv-box" aria-hidden="true">✓</span>
-                <span class="pv-name" data-t="item1">Stay</span>
-              </span>
-              <span class="pv-cost">195 €</span>
-            </button>
-            <button type="button" class="pv-task" role="checkbox" aria-checked="false" data-item="2">
-              <span class="pv-task-left">
-                <span class="pv-box" aria-hidden="true"></span>
-                <span class="pv-name" data-t="item2">Dinner</span>
-              </span>
-              <span class="pv-cost">60 €</span>
-            </button>
-          </div>
-
-          <div class="pv-summary">
-            <span class="pv-spent" id="pv-spent">Spent 375 €</span>
-            <span class="pv-rem is-ok" id="pv-rem">Remaining 75 €</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="note-foot">
-        <span class="note-hint" id="note-hint" data-t="hintRaw">Edit budget or check items, then switch to Pretty</span>
-        <button type="button" class="note-reset" id="note-reset" data-t="resetBtn" hidden>Reset</button>
+      <div class="frame hero-shot">
+        <img class="theme-light" src="/assets/hero-window.png?v=2" srcset="/assets/hero-window.png?v=2 1x, /assets/hero-window@2x.png?v=2 2x" width="1600" height="984" fetchpriority="high" alt="Noteelus in clean reading mode showing a monthly budget note with interactive inputs, totals, and a chart.">
+        <img class="theme-dark" src="/assets/hero-window-dark.png?v=2" srcset="/assets/hero-window-dark.png?v=2 1x, /assets/hero-window-dark@2x.png?v=2 2x" width="1600" height="984" alt="Noteelus in Dark Ink reading mode showing a monthly budget note with interactive inputs, totals, and a chart.">
       </div>
     </div>
+  </section>
 
-    <div class="actions">
-      <a class="btn" href="https://github.com/Noteelus/noteelus.github.io" data-t="cta1">Follow on GitHub</a>
-      <a class="btn outline" href="/privacy.html" data-t="cta2">Privacy &amp; Architecture</a>
+  <section class="showcase" id="features">
+    <div class="wrap">
+      <div class="row">
+        <div class="row-copy">
+          <h2 data-i18n="f1.title">Notes that add up for you.</h2>
+          <p data-i18n="f1.lede">Plan a monthly budget, adjust a recipe, or track a project. Change a number and your totals and charts update on the spot, without juggling spreadsheets.</p>
+        </div>
+        <div class="row-media frame">
+          <video src="/assets/clips/split-live.mp4?v=2" poster="/assets/clips/split-live.jpg?v=2" data-src-light="/assets/clips/split-live.mp4?v=2" data-src-dark="/assets/clips/split-live-dark.mp4?v=2" data-poster-light="/assets/clips/split-live.jpg?v=2" data-poster-dark="/assets/clips/split-live-dark.jpg?v=2" muted loop playsinline preload="none" aria-label="Noteelus expanding from simple reading mode into Split View and recalculating totals and charts live."></video>
+        </div>
+      </div>
+
+      <div class="row is-reverse" id="maps">
+        <div class="row-copy">
+          <h2 data-i18n="maps.title">Map your trips, even without internet.</h2>
+          <p data-i18n="maps.lede">Turn your itinerary into a spinning 3D globe or a clean 2D route map. Attach your trip photos and check every stop on a plane with zero connection.</p>
+        </div>
+        <div class="row-media frame">
+          <div class="card-bar">
+            <span class="dot-row" aria-hidden="true">
+              <i style="background:#FF8169"></i>
+              <i style="background:#5A90CC"></i>
+              <i style="background:#A594F0"></i>
+            </span>
+            <div class="view-tabs" role="tablist" aria-label="Map view">
+              <button type="button" role="tab" data-map-mode="motion" aria-selected="true" data-i18n="maps.m.preview">Preview</button>
+              <button type="button" role="tab" data-map-mode="3d" aria-selected="false" data-i18n="maps.m.3d">3D Globe</button>
+              <button type="button" role="tab" data-map-mode="2d" aria-selected="false" data-i18n="maps.m.2d">2D Map</button>
+            </div>
+          </div>
+          <div class="map-stage">
+            <div data-map-view="motion">
+              <video src="/assets/clips/maps.mp4?v=2" poster="/assets/clips/maps.jpg?v=2" data-src-light="/assets/clips/maps.mp4?v=2" data-src-dark="/assets/clips/maps-dark.mp4?v=2" data-poster-light="/assets/clips/maps.jpg?v=2" data-poster-dark="/assets/clips/maps-dark.jpg?v=2" muted loop playsinline preload="none" aria-label="Previewing a 3D travel globe and a 2D route map in Noteelus."></video>
+            </div>
+            <div data-map-view="3d" hidden>
+              <img class="theme-light" src="/assets/comp-map-3d.jpg?v=2" width="1400" height="860" loading="lazy" alt="3D globe showing stops in Paris, Tokyo, Hakone, Kyoto, and Seoul in Light mode.">
+              <img class="theme-dark" src="/assets/comp-map-3d-dark.jpg?v=2" width="1400" height="860" loading="lazy" alt="3D globe showing stops in Paris, Tokyo, Hakone, Kyoto, and Seoul in Dark Ink mode.">
+            </div>
+            <div data-map-view="2d" hidden>
+              <img class="theme-light" src="/assets/comp-map-2d.jpg?v=2" width="1400" height="860" loading="lazy" alt="2D travel route map showing Paris, Zurich, Milan, Rome, and Barcelona in Light mode.">
+              <img class="theme-dark" src="/assets/comp-map-2d-dark.jpg?v=2" width="1400" height="860" loading="lazy" alt="2D travel route map showing Paris, Zurich, Milan, Rome, and Barcelona in Dark Ink mode.">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="spaces">
+        <div class="row-copy">
+          <h2 data-i18n="sp.title">Separate Spaces for every part of your life.</h2>
+          <p data-i18n="sp.lede">Keep Personal, Work, and Travel apart with their own folders and accent colors. Hop between them in a single click.</p>
+        </div>
+        <div class="row-media frame">
+          <video src="/assets/clips/spaces.mp4?v=2" poster="/assets/clips/spaces.jpg?v=2" data-src-light="/assets/clips/spaces.mp4?v=2" data-src-dark="/assets/clips/spaces-dark.mp4?v=2" data-poster-light="/assets/clips/spaces.jpg?v=2" data-poster-dark="/assets/clips/spaces-dark.jpg?v=2" muted loop playsinline preload="none" aria-label="Switching across Personal, Work, and Travel Spaces in Noteelus with the full Explorer open."></video>
+        </div>
+      </div>
+
+      <div class="row is-reverse">
+        <div class="row-copy">
+          <h2 data-i18n="gal.title">Every photo, video, and PDF in one gallery.</h2>
+          <p data-i18n="gal.lede">Browse every picture, GIF, video clip, voice memo, and document across your notes in one place, and reuse them anytime.</p>
+        </div>
+        <div class="row-media frame">
+          <img class="theme-light" src="/assets/comp-files-gallery.jpg?v=2" width="1400" height="950" loading="lazy" alt="Noteelus Files gallery showing real travel photos, a recipe picture, a tram GIF, a video clip, a voice memo, and a PDF in Light mode.">
+          <img class="theme-dark" src="/assets/comp-files-gallery-dark.jpg?v=2" width="1400" height="950" loading="lazy" alt="Noteelus Files gallery showing real travel photos, a recipe picture, a tram GIF, a video clip, a voice memo, and a PDF in Dark Ink mode.">
+        </div>
+      </div>
+
+      <div class="row" id="privacy">
+        <div class="row-copy">
+          <h2 data-i18n="priv.title">Private by default. Lock what matters.</h2>
+          <p data-i18n="priv.lede">No account to sign up for, no servers reading your notes. Everything stays on your device, and you can lock any sensitive folder with your own password.</p>
+          <a class="quiet-link" href="/privacy.html" data-i18n="foot.priv">Privacy Policy</a>
+        </div>
+        <div class="row-media frame">
+          <img class="theme-light" src="/assets/comp-vault.jpg?v=2" width="1400" height="920" loading="lazy" alt="Locked private folder and password dialog in Noteelus in Light mode.">
+          <img class="theme-dark" src="/assets/comp-vault-dark.jpg?v=2" width="1400" height="920" loading="lazy" alt="Locked private folder and password dialog in Noteelus in Dark Ink mode.">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="devices">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="dev.title">Calm on any screen, day or night.</h2>
+        <p data-i18n="dev.lede">Enjoy the same clean reading and editing experience across macOS, Windows, and Android, in light paper or cozy dark themes.</p>
+      </div>
+
+      <div class="duo">
+        <figure class="duo-card">
+          <img class="theme-light" src="/assets/comp-themes.jpg?v=2" width="1400" height="933" loading="lazy" alt="Noteelus in Light, Graphite, Ink, and Moka color themes.">
+          <img class="theme-dark" src="/assets/comp-themes-dark.jpg?v=2" width="1400" height="933" loading="lazy" alt="Noteelus in Light, Graphite, Ink, and Moka color themes.">
+          <figcaption><b data-i18n="dev.t.title">Four soothing themes</b><span data-i18n="dev.t.desc">Warm white paper for daytime, plus Graphite, Ink, and Moka for the evening.</span></figcaption>
+        </figure>
+        <figure class="duo-card phone">
+          <img class="theme-light" src="/assets/comp-mobile.jpg?v=2" width="840" height="1540" loading="lazy" alt="Noteelus on a smartphone displaying a Lisbon trip note in Light mode.">
+          <img class="theme-dark" src="/assets/comp-mobile-dark.jpg?v=2" width="840" height="1540" loading="lazy" alt="Noteelus on a smartphone displaying a Lisbon trip note in Dark Ink mode.">
+          <figcaption><b data-i18n="dev.m.title">Made for desktop and phone</b><span data-i18n="dev.m.desc">Comfortable side-by-side editing on Mac and Windows, pocket reading on Android. iPhone coming soon.</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="qa-list" id="questions">
+        <details>
+          <summary data-i18n="qa.1.q">Is Noteelus free?</summary>
+          <p data-i18n="qa.1.a">Yes. Noteelus is completely free, with no subscription, no ads, and no account required.</p>
+        </details>
+        <details>
+          <summary data-i18n="qa.2.q">Does it work offline?</summary>
+          <p data-i18n="qa.2.a">Yes. Your notes, photos, budgets, and travel maps all work without an internet connection.</p>
+        </details>
+        <details>
+          <summary data-i18n="qa.3.q">Can I sync between my computer and phone?</summary>
+          <p data-i18n="qa.3.a">Yes. If you choose to connect Google Drive, your notes sync directly through your own Drive folder.</p>
+        </details>
+        <details>
+          <summary data-i18n="qa.4.q">What if I forget a locked folder's password?</summary>
+          <p data-i18n="qa.4.a">You can unlock it with the recovery key shown when you create the lock. Nobody else has access to your private folders.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2 data-i18n="close.title">Ready for a calmer notebook?</h2>
+      <p data-i18n="close.sub">Free for macOS, Windows, and Android.</p>
+      <a class="btn" href="/download/" data-i18n="close.cta">Download Noteelus</a>
     </div>
   </section>
 </main>
 
-<footer>
+<footer class="site-footer">
   <nav class="foot-links">
-    <a href="/privacy.html" data-t="f1">Privacy Policy</a>
-    <a href="/terms.html" data-t="f2">Terms of Use</a>
-    <a href="/THIRD_PARTY_NOTICES.md" data-t="f3">Third-Party Notices</a>
-    <a href="https://github.com/Noteelus/noteelus.github.io/issues" data-t="f4">Issues</a>
+    <a href="/download/" data-i18n="nav.download">Download</a>
+    <a href="/release-notes/" data-i18n="nav.updates">Updates</a>
+    <a href="/privacy.html" data-i18n="foot.priv">Privacy Policy</a>
+    <a href="/terms.html" data-i18n="foot.terms">Terms of Use</a>
+    <a href="/THIRD_PARTY_NOTICES.md" data-i18n="foot.notices">Third-Party Notices</a>
+    <a href="https://github.com/Noteelus/noteelus.github.io">GitHub</a>
     <a href="mailto:noteelus-support@googlegroups.com">noteelus-support@googlegroups.com</a>
   </nav>
   <div>© 2026 Noteelus</div>
 </footer>
 
-<script>
-(function () {
-  var costs = [180, 195, 60];
-  var state = {
-    lang: "en",
-    theme: "light",
-    view: "raw",
-    budget: 450,
-    checked: [true, true, false]
-  };
-
-  var copy = {
-    en: {
-      pageTitle: "Noteelus · Coming soon",
-      h1: "Plain text, quietly <em>coming alive</em>.",
-      lede: "A quiet, private space for your notes, budgets, travel maps, and photos. Stored on your own devices. No account. No server.",
-      platforms: "Coming soon for macOS · Windows · Android · iOS",
-      viewRaw: "Markdown",
-      viewPretty: "Pretty",
-      mdTitle: "# Lisbon Weekend",
-      mdBudgetLbl: "Budget (€)",
-      mdRemLbl: "Remaining:",
-      pvTitle: "Lisbon Weekend",
-      pvBudgetLbl: "Budget (€)",
-      item0: "Flight",
-      item1: "Stay",
-      item2: "Dinner",
-      spentPrefix: "Spent",
-      remPrefix: "Remaining",
-      hintRaw: "Edit budget or check items, then switch to Pretty",
-      hintPretty: "Toggle items or adjust budget, switch back to Markdown",
-      resetBtn: "Reset",
-      cta1: "Follow on GitHub",
-      cta2: "Privacy & Architecture",
-      f1: "Privacy Policy",
-      f2: "Terms of Use",
-      f3: "Third-Party Notices",
-      f4: "Issues",
-      dark: "Dark",
-      light: "Light"
-    },
-    "zh-CN": {
-      pageTitle: "Noteelus · 即将推出",
-      h1: "纯文本笔记，悄然<em>焕发生机</em>。",
-      lede: "一个安静、私密的笔记空间，容纳日常笔记、预算、旅行地图与照片。数据保存在你自己的设备上，无需账号，无需服务器。",
-      platforms: "即将登陆 macOS · Windows · Android · iOS",
-      viewRaw: "Markdown",
-      viewPretty: "预览",
-      mdTitle: "# 里斯本周末",
-      mdBudgetLbl: "预算 (€)",
-      mdRemLbl: "剩余:",
-      pvTitle: "里斯本周末",
-      pvBudgetLbl: "预算 (€)",
-      item0: "机票",
-      item1: "住宿",
-      item2: "晚餐",
-      spentPrefix: "已花费",
-      remPrefix: "剩余",
-      hintRaw: "修改预算或勾选清单，再切换到预览",
-      hintPretty: "勾选项目或调整预算，切换回 Markdown",
-      resetBtn: "重置",
-      cta1: "关注 GitHub",
-      cta2: "隐私与架构",
-      f1: "隐私政策",
-      f2: "使用条款",
-      f3: "第三方声明",
-      f4: "问题反馈",
-      dark: "深色",
-      light: "浅色"
-    },
-    ru: {
-      pageTitle: "Noteelus · Скоро выход",
-      h1: "Обычный текст, который <em>оживает</em>.",
-      lede: "Спокойное и приватное пространство для заметок, бюджетов, карт поездок и фото. Всё хранится на ваших устройствах. Без аккаунта и серверов.",
-      platforms: "Скоро на macOS · Windows · Android · iOS",
-      viewRaw: "Markdown",
-      viewPretty: "Вид",
-      mdTitle: "# Выходные в Лиссабоне",
-      mdBudgetLbl: "Бюджет (€)",
-      mdRemLbl: "Остаток:",
-      pvTitle: "Выходные в Лиссабоне",
-      pvBudgetLbl: "Бюджет (€)",
-      item0: "Перелёт",
-      item1: "Жильё",
-      item2: "Ужин",
-      spentPrefix: "Потрачено",
-      remPrefix: "Остаток",
-      hintRaw: "Измените бюджет или отметьте пункты, затем откройте Вид",
-      hintPretty: "Переключайте пункты или бюджет, вернитесь к Markdown",
-      resetBtn: "Сброс",
-      cta1: "Следить на GitHub",
-      cta2: "Приватность и архитектура",
-      f1: "Политика конфиденциальности",
-      f2: "Условия использования",
-      f3: "Сторонние лицензии",
-      f4: "Вопросы",
-      dark: "Тёмная",
-      light: "Светлая"
-    },
-    es: {
-      pageTitle: "Noteelus · Próximamente",
-      h1: "Texto plano que <em>cobra vida</em>.",
-      lede: "Un espacio tranquilo y privado para tus notas, presupuestos, mapas de viaje y fotos. Guardado en tus dispositivos. Sin cuenta. Sin servidor.",
-      platforms: "Próximamente para macOS · Windows · Android · iOS",
-      viewRaw: "Markdown",
-      viewPretty: "Vista",
-      mdTitle: "# Fin de semana en Lisboa",
-      mdBudgetLbl: "Presupuesto (€)",
-      mdRemLbl: "Restante:",
-      pvTitle: "Fin de semana en Lisboa",
-      pvBudgetLbl: "Presupuesto (€)",
-      item0: "Vuelo",
-      item1: "Alojamiento",
-      item2: "Cena",
-      spentPrefix: "Gastado",
-      remPrefix: "Restante",
-      hintRaw: "Edita el presupuesto o marca tareas y pasa a Vista",
-      hintPretty: "Marca tareas o ajusta el presupuesto y vuelve a Markdown",
-      resetBtn: "Restablecer",
-      cta1: "Seguir en GitHub",
-      cta2: "Privacidad y Arquitectura",
-      f1: "Política de privacidad",
-      f2: "Términos de uso",
-      f3: "Avisos de terceros",
-      f4: "Issues",
-      dark: "Oscuro",
-      light: "Claro"
-    },
-    "pt-BR": {
-      pageTitle: "Noteelus · Em breve",
-      h1: "Texto puro que <em>ganha vida</em>.",
-      lede: "Um espaço tranquilo e privado para suas notas, orçamentos, mapas de viagem e fotos. Tudo salvo nos seus dispositivos. Sem conta. Sem servidor.",
-      platforms: "Em breve para macOS · Windows · Android · iOS",
-      viewRaw: "Markdown",
-      viewPretty: "Visual",
-      mdTitle: "# Fim de semana em Lisboa",
-      mdBudgetLbl: "Orçamento (€)",
-      mdRemLbl: "Restante:",
-      pvTitle: "Fim de semana em Lisboa",
-      pvBudgetLbl: "Orçamento (€)",
-      item0: "Voo",
-      item1: "Hospedagem",
-      item2: "Jantar",
-      spentPrefix: "Gasto",
-      remPrefix: "Restante",
-      hintRaw: "Edite o orçamento ou marque itens e alterne para Visual",
-      hintPretty: "Marque itens ou ajuste o orçamento e volte ao Markdown",
-      resetBtn: "Redefinir",
-      cta1: "Acompanhar no GitHub",
-      cta2: "Privacidade e Arquitetura",
-      f1: "Privacidade",
-      f2: "Termos de uso",
-      f3: "Avisos de terceiros",
-      f4: "Issues",
-      dark: "Escuro",
-      light: "Claro"
-    },
-    fr: {
-      pageTitle: "Noteelus · Bientôt disponible",
-      h1: "Le texte brut, prêt à <em>prendre vie</em>.",
-      lede: "Un espace calme et privé pour vos notes, budgets, cartes de voyage et photos. Enregistré sur vos appareils. Sans compte. Sans serveur.",
-      platforms: "Bientôt disponible sur macOS · Windows · Android · iOS",
-      viewRaw: "Markdown",
-      viewPretty: "Rendu",
-      mdTitle: "# Week-end à Lisbonne",
-      mdBudgetLbl: "Budget (€)",
-      mdRemLbl: "Restant :",
-      pvTitle: "Week-end à Lisbonne",
-      pvBudgetLbl: "Budget (€)",
-      item0: "Vol",
-      item1: "Logement",
-      item2: "Dîner",
-      spentPrefix: "Dépensé",
-      remPrefix: "Restant",
-      hintRaw: "Modifiez le budget ou cochez une ligne, puis passez en Rendu",
-      hintPretty: "Cochez ou ajustez le budget, revenez voir le Markdown",
-      resetBtn: "Réinit.",
-      cta1: "Suivre sur GitHub",
-      cta2: "Confidentialité & Architecture",
-      f1: "Confidentialité",
-      f2: "Conditions d'utilisation",
-      f3: "Licences tierces",
-      f4: "Issues",
-      dark: "Sombre",
-      light: "Clair"
-    },
-    tr: {
-      pageTitle: "Noteelus · Yakında",
-      h1: "Düz metin, sessizce <em>canlanıyor</em>.",
-      lede: "Notlarınız, bütçeleriniz, seyahat haritalarınız ve fotoğraflarınız için sakin ve özel bir alan. Kendi cihazlarınızda saklanır. Hesap yok. Sunucu yok.",
-      platforms: "macOS · Windows · Android · iOS için yakında",
-      viewRaw: "Markdown",
-      viewPretty: "Görünüm",
-      mdTitle: "# Lizbon Hafta Sonu",
-      mdBudgetLbl: "Bütçe (€)",
-      mdRemLbl: "Kalan:",
-      pvTitle: "Lizbon Hafta Sonu",
-      pvBudgetLbl: "Bütçe (€)",
-      item0: "Uçuş",
-      item1: "Konaklama",
-      item2: "Akşam yemeği",
-      spentPrefix: "Harcanan",
-      remPrefix: "Kalan",
-      hintRaw: "Bütçeyi düzenleyin veya öğeleri işaretleyin, Görünüm'e geçin",
-      hintPretty: "Öğeleri veya bütçeyi değiştirin, Markdown'a geri dönün",
-      resetBtn: "Sıfırla",
-      cta1: "GitHub'da Takip Et",
-      cta2: "Gizlilik ve Mimari",
-      f1: "Gizlilik Politikası",
-      f2: "Kullanım Koşulları",
-      f3: "Üçüncü Taraf Bildirimleri",
-      f4: "Sorun Bildir",
-      dark: "Koyu",
-      light: "Açık"
-    }
-  };
-
-  var langMeta = {
-    en: { full: "English", short: "EN" },
-    "zh-CN": { full: "简体中文", short: "中文" },
-    ru: { full: "Русский", short: "RU" },
-    es: { full: "Español", short: "ES" },
-    "pt-BR": { full: "Português (Brasil)", short: "PT" },
-    fr: { full: "Français", short: "FR" },
-    tr: { full: "Türkçe", short: "TR" }
-  };
-
-  function normalizeLang(tag) {
-    if (!tag) return null;
-    var n = String(tag).trim().replace(/_/g, "-").toLowerCase();
-    if (n === "zh" || n === "zh-cn" || n.indexOf("zh-hans") === 0) return "zh-CN";
-    if (n === "pt" || n === "pt-br" || n.indexOf("pt-br-") === 0) return "pt-BR";
-    if (n === "ru" || n.indexOf("ru-") === 0) return "ru";
-    if (n === "es" || n.indexOf("es-") === 0) return "es";
-    if (n === "fr" || n.indexOf("fr-") === 0) return "fr";
-    if (n === "tr" || n.indexOf("tr-") === 0) return "tr";
-    if (n === "en" || n.indexOf("en-") === 0) return "en";
-    return null;
-  }
-
-  function detectLang() {
-    var q = normalizeLang(new URLSearchParams(window.location.search).get("lang"));
-    if (q && copy[q]) return q;
-    try {
-      var saved = normalizeLang(localStorage.getItem("noteelus_teaser_lang"));
-      if (saved && copy[saved]) return saved;
-    } catch (_) {}
-    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || navigator.userLanguage || "en"];
-    for (var i = 0; i < langs.length; i++) {
-      var m = normalizeLang(langs[i]);
-      if (m && copy[m]) return m;
-    }
-    return "en";
-  }
-
-  function detectTheme() {
-    try {
-      var s = localStorage.getItem("noteelus_teaser_theme");
-      if (s === "dark" || s === "light") return s;
-    } catch (_) {}
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  }
-
-  var rawPane = document.getElementById("pane-raw");
-  var prettyPane = document.getElementById("pane-pretty");
-  var rawBudget = document.getElementById("raw-budget");
-  var pvBudget = document.getElementById("pv-budget");
-  var rawRem = document.getElementById("raw-rem");
-  var pvSpent = document.getElementById("pv-spent");
-  var pvRem = document.getElementById("pv-rem");
-  var hintEl = document.getElementById("note-hint");
-  var resetEl = document.getElementById("note-reset");
-  var langMenu = document.getElementById("lang-menu");
-  var langTrigger = document.getElementById("lang-trigger");
-  var langPopover = document.getElementById("lang-popover");
-  var langFull = document.getElementById("lang-full");
-  var langShort = document.getElementById("lang-short");
-  var langOptions = langPopover ? Array.prototype.slice.call(langPopover.querySelectorAll(".lang-option")) : [];
-
-  function closeLangMenu(restoreFocus) {
-    if (!langPopover || langPopover.hidden) return;
-    langPopover.hidden = true;
-    if (langTrigger) {
-      langTrigger.setAttribute("aria-expanded", "false");
-      if (restoreFocus) langTrigger.focus();
-    }
-  }
-
-  function openLangMenu() {
-    if (!langPopover || !langPopover.hidden) return;
-    langPopover.hidden = false;
-    if (langTrigger) langTrigger.setAttribute("aria-expanded", "true");
-  }
-
-  function isDirty() {
-    return state.budget !== 450 ||
-      state.checked[0] !== true ||
-      state.checked[1] !== true ||
-      state.checked[2] !== false;
-  }
-
-  function syncValues(fromSource) {
-    var d = copy[state.lang] || copy.en;
-    var spent = 0;
-    for (var i = 0; i < costs.length; i++) {
-      if (state.checked[i]) spent += costs[i];
-    }
-    var rem = state.budget - spent;
-    var ok = rem >= 0;
-
-    if (rawBudget && fromSource !== "raw") rawBudget.value = String(state.budget);
-    if (pvBudget && fromSource !== "pv") pvBudget.value = String(state.budget);
-
-    document.querySelectorAll(".raw-check").forEach(function (btn) {
-      var idx = parseInt(btn.getAttribute("data-item"), 10);
-      var on = !!state.checked[idx];
-      var mark = btn.querySelector(".raw-mark");
-      if (mark) mark.textContent = on ? "x" : " ";
-    });
-
-    document.querySelectorAll(".pv-task").forEach(function (btn) {
-      var idx = parseInt(btn.getAttribute("data-item"), 10);
-      var on = !!state.checked[idx];
-      btn.setAttribute("aria-checked", on ? "true" : "false");
-      btn.classList.toggle("is-done", on);
-      var box = btn.querySelector(".pv-box");
-      if (box) box.textContent = on ? "✓" : "";
-    });
-
-    if (rawRem) {
-      rawRem.textContent = "→ " + rem + " €";
-      rawRem.classList.toggle("is-warn", !ok);
-    }
-    if (pvSpent) pvSpent.textContent = d.spentPrefix + " " + spent + " €";
-    if (pvRem) {
-      pvRem.textContent = d.remPrefix + " " + rem + " €";
-      pvRem.classList.toggle("is-ok", ok);
-      pvRem.classList.toggle("is-warn", !ok);
-    }
-    if (resetEl) resetEl.hidden = !isDirty();
-  }
-
-  function setView(v) {
-    state.view = v === "pretty" ? "pretty" : "raw";
-    if (rawPane) rawPane.hidden = state.view !== "raw";
-    if (prettyPane) prettyPane.hidden = state.view !== "pretty";
-    document.querySelectorAll(".view-tabs button").forEach(function (b) {
-      b.setAttribute("aria-pressed", b.getAttribute("data-view") === state.view ? "true" : "false");
-    });
-    var d = copy[state.lang] || copy.en;
-    if (hintEl) hintEl.textContent = state.view === "pretty" ? d.hintPretty : d.hintRaw;
-  }
-
-  function setTheme(t, persist) {
-    state.theme = t === "dark" ? "dark" : "light";
-    if (state.theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
-    else document.documentElement.removeAttribute("data-theme");
-    if (persist) {
-      try { localStorage.setItem("noteelus_teaser_theme", state.theme); } catch (_) {}
-    }
-    var btn = document.getElementById("theme-btn");
-    var lbl = document.getElementById("theme-lbl");
-    var d = copy[state.lang] || copy.en;
-    var nextTxt = state.theme === "dark" ? d.light : d.dark;
-    if (btn) {
-      btn.setAttribute("aria-pressed", state.theme === "dark" ? "true" : "false");
-      btn.setAttribute("aria-label", nextTxt);
-    }
-    if (lbl) lbl.textContent = nextTxt;
-  }
-
-  function setLang(l, persist) {
-    var norm = normalizeLang(l) || "en";
-    state.lang = copy[norm] ? norm : "en";
-    var d = copy[state.lang];
-    document.documentElement.lang = state.lang;
-    document.title = d.pageTitle;
-    if (persist) {
-      try { localStorage.setItem("noteelus_teaser_lang", state.lang); } catch (_) {}
-    }
-    document.querySelectorAll("[data-t]").forEach(function (el) {
-      var k = el.getAttribute("data-t");
-      if (d[k] !== undefined) el.textContent = d[k];
-    });
-    document.querySelectorAll("[data-th]").forEach(function (el) {
-      var k = el.getAttribute("data-th");
-      if (d[k] !== undefined) el.innerHTML = d[k];
-    });
-    var meta = langMeta[state.lang] || langMeta.en;
-    if (langFull) langFull.textContent = meta.full;
-    if (langShort) langShort.textContent = meta.short;
-    langOptions.forEach(function (opt) {
-      opt.setAttribute("aria-selected", opt.getAttribute("data-lang") === state.lang ? "true" : "false");
-    });
-    setTheme(state.theme, false);
-    setView(state.view);
-    syncValues();
-  }
-
-  document.querySelectorAll(".view-tabs button").forEach(function (b) {
-    b.addEventListener("click", function () { setView(b.getAttribute("data-view")); });
-  });
-
-  function bindBudgetInput(el, source) {
-    if (!el) return;
-    el.addEventListener("input", function () {
-      var n = parseInt(el.value, 10);
-      state.budget = isNaN(n) ? 0 : Math.max(-99999, Math.min(99999, n));
-      syncValues(source);
-    });
-  }
-  bindBudgetInput(rawBudget, "raw");
-  bindBudgetInput(pvBudget, "pv");
-
-  document.querySelectorAll(".raw-check, .pv-task").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var idx = parseInt(btn.getAttribute("data-item"), 10);
-      state.checked[idx] = !state.checked[idx];
-      syncValues();
-    });
-  });
-
-  if (resetEl) {
-    resetEl.addEventListener("click", function () {
-      state.budget = 450;
-      state.checked = [true, true, false];
-      syncValues();
-    });
-  }
-
-  state.theme = detectTheme();
-  setLang(detectLang(), false);
-
-  var tb = document.getElementById("theme-btn");
-  if (tb) tb.addEventListener("click", function () {
-    setTheme(state.theme === "dark" ? "light" : "dark", true);
-  });
-  if (langTrigger && langPopover) {
-    langTrigger.addEventListener("click", function (e) {
-      e.stopPropagation();
-      if (langPopover.hidden) openLangMenu();
-      else closeLangMenu(false);
-    });
-    langOptions.forEach(function (opt, idx) {
-      opt.addEventListener("click", function () {
-        setLang(opt.getAttribute("data-lang"), true);
-        closeLangMenu(true);
-      });
-      opt.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowDown") {
-          e.preventDefault();
-          langOptions[(idx + 1) % langOptions.length].focus();
-        } else if (e.key === "ArrowUp") {
-          e.preventDefault();
-          langOptions[(idx - 1 + langOptions.length) % langOptions.length].focus();
-        } else if (e.key === "Escape") {
-          e.preventDefault();
-          closeLangMenu(true);
-        }
-      });
-    });
-    document.addEventListener("click", function (e) {
-      if (langMenu && !langMenu.contains(e.target)) closeLangMenu(false);
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeLangMenu(true);
-    });
-  }
-
-  if (window.matchMedia) {
-    var mq = window.matchMedia("(prefers-color-scheme: dark)");
-    var onOsTheme = function (e) {
-      var saved = null;
-      try { saved = localStorage.getItem("noteelus_teaser_theme"); } catch (_) {}
-      if (saved !== "dark" && saved !== "light") {
-        setTheme(e.matches ? "dark" : "light", false);
-      }
-    };
-    if (mq.addEventListener) mq.addEventListener("change", onOsTheme);
-  }
-})();
-</script>
+<script src="/assets/i18n.js?v=6"></script>
+<script src="/assets/site.js?v=6"></script>
 </body>
 </html>
