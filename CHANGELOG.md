@@ -2,6 +2,14 @@
 
 All notable releases of Noteelus are documented here.
 
+## [1.0.68] - 2026-11-24
+
+Refreshed mobile reading experience with floating islands and unified Swiss Sheet dialogs across the app.
+
+### New
+- **Refreshed mobile Pretty View & floating islands**: Seamless edge-to-edge paper canvas behind the status bar and gesture bar (Android & iOS), frosted left island (`☰ • 🔍 • +`) that auto-hides while reading and expands with liquid-volume spring physics for inline search and quick block insertion, and a draggable YouTube-PiP-style accent switch pill that hides while searching or inserting.
+- **Unified Swiss Sheet dialogs**: Modernized, cohesive dialog design across encryption, app lock, Drive conflicts, and settings, including password reveal toggles and clearer destructive confirmations.
+
 ## [1.0.66] - 2026-11-24
 
 First public beta release featuring the redesigned Liquid Glass app icon, Studio Explorer, improved travel map timelines, and smoother editor scrolling.

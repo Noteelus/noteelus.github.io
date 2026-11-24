@@ -903,6 +903,13 @@
       var k = el.getAttribute("data-i18n-html");
       if (d[k] !== undefined) el.innerHTML = d[k];
     });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria");
+      if (d[k] !== undefined) {
+        el.setAttribute("aria-label", d[k]);
+        el.setAttribute("title", d[k]);
+      }
+    });
     refreshLangMenu(l);
     refreshThemeLabel(l);
     try {

@@ -91,7 +91,7 @@ def build_html(versions) -> str:
 <script>
 (function(){{try{{var s=localStorage.getItem("noteelus_theme");var d=s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.setAttribute("data-theme","dark");}}catch(_){{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}}}})();
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=13">
+<link rel="stylesheet" href="/assets/site.css?v=14">
 </head>
 <body>
 
@@ -102,6 +102,10 @@ def build_html(versions) -> str:
       <span>Noteelus</span>
     </a>
     <div class="tools">
+      <a class="icon-btn top-coffee" href="https://ko-fi.com/noteelus" target="_blank" rel="noopener noreferrer" data-i18n-aria="foot.coffee" aria-label="Buy me a coffee" title="Buy me a coffee">
+        <svg class="coffee-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 5.5h8.5v4.2a3.3 3.3 0 0 1-3.3 3.3H5.8a3.3 3.3 0 0 1-3.3-3.3V5.5z"/><path d="M11 6.5h1.5a1.8 1.8 0 0 1 0 3.6H11"/><path d="M5.2 2.4c0 .9.6 1 .6 1.8M7.8 2.4c0 .9.6 1 .6 1.8"/></svg>
+        <span data-coffee-label data-i18n="foot.coffee">Buy me a coffee</span>
+      </a>
       <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="Dark" title="Toggle Light / Dark">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.5v1.3M8 13.2v1.3M1.5 8h1.3M13.2 8h1.3M3.4 3.4l.9.9M11.7 11.7l.9.9M12.6 3.4l-.9.9M4.3 11.7l-.9.9"/></svg>
         <span data-theme-label>Dark</span>
@@ -154,7 +158,7 @@ def build_html(versions) -> str:
   <div>© 2026 Noteelus</div>
 </footer>
 
-<script src="/assets/i18n.js?v=11"></script>
+<script src="/assets/i18n.js?v=12"></script>
 <script src="/assets/site.js?v=11"></script>
 </body>
 </html>
