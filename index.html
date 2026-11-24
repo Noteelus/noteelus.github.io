@@ -37,7 +37,7 @@
 <script>
 (function(){try{var s=localStorage.getItem("noteelus_theme");var d=s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.setAttribute("data-theme","dark");}catch(_){if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}})();
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="stylesheet" href="/assets/site.css?v=12">
 </head>
 <body>
 
@@ -127,10 +127,15 @@
       <div class="row is-reverse" id="spaces">
         <div class="row-copy">
           <h2 data-i18n="sp.title">Separate Spaces for every part of your life.</h2>
-          <p data-i18n="sp.lede">Keep Personal, Work, and Travel apart with their own folders and accent colors. Hop between them in a single click.</p>
+          <p data-i18n="sp.lede">Keep Personal, Work, and Travel apart with their own folders and colors. Each Space stays local by default, or syncs with its own Google Drive account.</p>
+          <ul class="space-legend">
+            <li><i style="background:#FF8169" aria-hidden="true"></i><strong data-i18n="sp.s1">Personal</strong><span>Google Drive · alex@gmail.com</span></li>
+            <li><i style="background:#5A90CC" aria-hidden="true"></i><strong data-i18n="sp.s2">Work</strong><span>Google Drive · pro@studio.io</span></li>
+            <li><i style="background:#A594F0" aria-hidden="true"></i><strong data-i18n="sp.s3">Travel</strong><span data-i18n="sp.local">Local only</span></li>
+          </ul>
         </div>
         <div class="row-media frame">
-          <video src="/assets/clips/spaces.mp4?v=3" poster="/assets/clips/spaces.jpg?v=3" data-src-light="/assets/clips/spaces.mp4?v=3" data-src-dark="/assets/clips/spaces-dark.mp4?v=3" data-poster-light="/assets/clips/spaces.jpg?v=3" data-poster-dark="/assets/clips/spaces-dark.jpg?v=3" muted loop playsinline preload="none" aria-label="Switching across Personal, Work, and Travel Spaces in Noteelus with the full Explorer open."></video>
+          <video src="/assets/clips/spaces.mp4?v=4" poster="/assets/clips/spaces.jpg?v=4" data-src-light="/assets/clips/spaces.mp4?v=4" data-src-dark="/assets/clips/spaces-dark.mp4?v=4" data-poster-light="/assets/clips/spaces.jpg?v=4" data-poster-dark="/assets/clips/spaces-dark.jpg?v=4" muted loop playsinline preload="none" aria-label="Switching across Personal, Work, and Travel Spaces in Noteelus with the full Explorer open."></video>
         </div>
       </div>
 
@@ -222,7 +227,7 @@
   <div>© 2026 Noteelus</div>
 </footer>
 
-<script src="/assets/i18n.js?v=9"></script>
+<script src="/assets/i18n.js?v=10"></script>
 <script src="/assets/site.js?v=10"></script>
 </body>
 </html>
