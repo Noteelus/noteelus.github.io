@@ -16,7 +16,7 @@
 <script>
 (function(){try{var s=localStorage.getItem("noteelus_theme");var d=s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.setAttribute("data-theme","dark");}catch(_){if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}})();
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=7">
+<link rel="stylesheet" href="/assets/site.css?v=8">
 </head>
 <body>
 
@@ -57,62 +57,78 @@
   <section class="page-head">
     <h1 data-i18n="dl.h1">Download Noteelus</h1>
     <p data-i18n="dl.sub">Pick your device below. Free, offline, and no account required.</p>
+  </section>
 
-    <div class="os-banner">
-      <div class="os-banner-info">
-        <span class="os-badge" id="release-version" hidden></span>
-        <div style="font-size:15px">
-          <span style="color:var(--muted)" data-i18n="dl.rec">Your device:</span>
-          <strong id="detected-os-name">macOS (.pkg)</strong>
+  <section class="dl-primary-card" id="dl-primary-card">
+    <div class="dl-card-meta">
+      <span class="os-badge" id="release-version" hidden></span>
+      <span class="dl-detected-pill" id="dl-detected-pill" data-i18n="dl.detected">Detected for your device</span>
+    </div>
+    <h2 id="detected-os-title">macOS</h2>
+    <p class="dl-arch-line" id="detected-os-arch" data-i18n="dl.mac.arch">Apple Silicon (M1–M4)</p>
+    <p class="dl-primary-desc" id="detected-os-desc" data-i18n="dl.mac.desc">Works on Mac with Apple Silicon (M1 to M4).</p>
+    <a class="btn dl-primary-btn" id="os-primary-cta" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="dl.mac.btn">Download for macOS</a>
+    <p class="dl-file-meta" id="detected-file-meta" hidden></p>
+
+    <details class="dl-guide-inline" id="detected-guide-wrap">
+      <summary data-i18n="dl.guide">First-launch help</summary>
+      <div id="detected-os-guide" data-i18n-html="dl.mac.guide">Open the <code>.pkg</code> installer. If macOS asks for permission, open <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>.</div>
+    </details>
+  </section>
+
+  <details class="dl-others" id="dl-others">
+    <summary><span data-i18n="dl.other">Other platforms &amp; architectures</span></summary>
+    <div class="dl-list">
+      <div class="dl-row" data-os-row="mac">
+        <div class="dl-row-main">
+          <strong>macOS</strong>
+          <span class="dl-row-arch" data-i18n="dl.mac.arch">Apple Silicon (M1–M4)</span>
+        </div>
+        <div class="dl-row-right">
+          <span class="os-ext">.pkg</span>
+          <span class="dl-row-size" id="size-mac" hidden></span>
+          <a class="btn outline small" id="dl-mac" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="nav.download">Download</a>
         </div>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px">
-        <a class="btn" id="os-primary-cta" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="hero.cta">Download Free</a>
-        <a class="btn outline" href="https://github.com/Noteelus/noteelus.github.io/releases" data-i18n="dl.all">View all releases on GitHub</a>
+
+      <div class="dl-row" data-os-row="win">
+        <div class="dl-row-main">
+          <strong>Windows</strong>
+          <span class="dl-row-arch" data-i18n="dl.win.arch">64-bit (x64)</span>
+        </div>
+        <div class="dl-row-right">
+          <span class="os-ext">.exe</span>
+          <span class="dl-row-size" id="size-win" hidden></span>
+          <a class="btn outline small" id="dl-win" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="nav.download">Download</a>
+        </div>
+      </div>
+
+      <div class="dl-row" data-os-row="android">
+        <div class="dl-row-main">
+          <strong>Android</strong>
+          <span class="dl-row-arch" data-i18n="dl.and.arch">Universal (APK)</span>
+        </div>
+        <div class="dl-row-right">
+          <span class="os-ext">.apk</span>
+          <span class="dl-row-size" id="size-android" hidden></span>
+          <a class="btn outline small" id="dl-android" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="nav.download">Download</a>
+        </div>
+      </div>
+
+      <div class="dl-row is-muted" data-os-row="ios">
+        <div class="dl-row-main">
+          <strong>iPhone &amp; iPad</strong>
+          <span class="dl-row-arch">iOS</span>
+        </div>
+        <div class="dl-row-right">
+          <span class="dl-soon-tag" data-i18n="dl.soon.badge">Coming soon</span>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="matrix-grid">
-    <article class="os-card" data-os-card="mac">
-      <div class="os-card-head">
-        <h2>macOS</h2>
-        <span class="os-ext">.pkg</span>
-      </div>
-      <p data-i18n="dl.mac.desc">Works on Mac with Apple Silicon (M1 to M4).</p>
-      <a class="btn" id="dl-mac" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="dl.mac.btn">Download for macOS</a>
-      <details>
-        <summary data-i18n="dl.guide">First-launch help</summary>
-        <div data-i18n-html="dl.mac.guide">Open the <code>.pkg</code> installer. If macOS asks for permission, open <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>.</div>
-      </details>
-    </article>
-
-    <article class="os-card" data-os-card="win">
-      <div class="os-card-head">
-        <h2>Windows</h2>
-        <span class="os-ext">.exe</span>
-      </div>
-      <p data-i18n="dl.win.desc">Works on Windows 10 and Windows 11 (64-bit).</p>
-      <a class="btn" id="dl-win" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="dl.win.btn">Download for Windows</a>
-      <details>
-        <summary data-i18n="dl.guide">First-launch help</summary>
-        <div data-i18n-html="dl.win.guide">Open the <code>.exe</code> installer. If Windows SmartScreen appears, click <b>More info</b> → <b>Run anyway</b>.</div>
-      </details>
-    </article>
-
-    <article class="os-card" data-os-card="android">
-      <div class="os-card-head">
-        <h2>Android</h2>
-        <span class="os-ext">.apk</span>
-      </div>
-      <p data-i18n="dl.and.desc">Works on Android phones and tablets.</p>
-      <a class="btn" id="dl-android" href="https://github.com/Noteelus/noteelus.github.io/releases/latest" data-i18n="dl.and.btn">Download for Android</a>
-      <details>
-        <summary data-i18n="dl.guide">First-launch help</summary>
-        <div data-i18n-html="dl.and.guide">Tap the downloaded <code>.apk</code> file on your Android device and allow install when asked.</div>
-      </details>
-    </article>
-  </section>
+    <div class="dl-others-foot">
+      <a class="quiet-link" href="https://github.com/Noteelus/noteelus.github.io/releases" data-i18n="dl.all">View all releases on GitHub</a>
+    </div>
+  </details>
 
   <div class="phone-tip" data-i18n-html="dl.tip">
     <b>Already using Noteelus on Mac or Windows?</b> You can also send the Android app straight to your phone from <i>Settings → Install on my phone</i>.
@@ -132,7 +148,7 @@
   <div>© 2026 Noteelus</div>
 </footer>
 
-<script src="/assets/i18n.js?v=7"></script>
-<script src="/assets/site.js?v=7"></script>
+<script src="/assets/i18n.js?v=8"></script>
+<script src="/assets/site.js?v=8"></script>
 </body>
 </html>

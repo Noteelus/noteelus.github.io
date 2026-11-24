@@ -107,6 +107,15 @@
       "dl.win.guide": "Open the <code>.exe</code> installer. If Windows SmartScreen appears, click <b>More info</b> → <b>Run anyway</b>.",
       "dl.and.guide": "Tap the downloaded <code>.apk</code> file on your Android device and allow install when asked.",
       "dl.tip": "<b>Already using Noteelus on Mac or Windows?</b> You can also send the Android app straight to your phone from <i>Settings → Install on my phone</i>.",
+      "dl.detected": "Detected for your device",
+      "dl.other": "Other platforms & architectures",
+      "dl.mac.arch": "Apple Silicon (M1–M4)",
+      "dl.win.arch": "64-bit (x64)",
+      "dl.and.arch": "Universal (APK)",
+      "dl.ios.soon": "iPhone & iPad coming soon",
+      "dl.soon.badge": "Coming soon",
+      "dl.intel.note": "Only Apple Silicon (M1–M4) Macs are supported for now. Choose another platform below if needed.",
+      "dl.other.os": "Choose your platform below to download Noteelus.",
       "rn.tag": "Updates",
       "rn.h1": "Release Notes",
       "rn.sub": "Recent improvements across desktop and mobile."
@@ -207,6 +216,15 @@
       "dl.win.guide": "运行 <code>.exe</code> 安装程序。若出现 SmartScreen 提示，点击<b>更多信息</b> → <b>仍要运行</b>。",
       "dl.and.guide": "在 Android 设备上点击下载的 <code>.apk</code>，按提示允许安装即可。",
       "dl.tip": "<b>已经在电脑上使用 Noteelus？</b> 也可在桌面端<i>设置 → 安装到手机</i>中直接把安装包传给 Android 手机。",
+      "dl.detected": "已为你的设备自动识别",
+      "dl.other": "其他平台与架构",
+      "dl.mac.arch": "Apple 芯片 (M1–M4)",
+      "dl.win.arch": "64 位 (x64)",
+      "dl.and.arch": "通用版 (APK)",
+      "dl.ios.soon": "iPhone 与 iPad 版即将推出",
+      "dl.soon.badge": "即将推出",
+      "dl.intel.note": "目前仅支持搭载 Apple 芯片 (M1–M4) 的 Mac，可在下方选择其他平台版本。",
+      "dl.other.os": "请在下方选择你的平台版本进行下载。",
       "rn.tag": "更新",
       "rn.h1": "更新日志",
       "rn.sub": "Noteelus 桌面端与手机端的近期更新。"
@@ -307,6 +325,15 @@
       "dl.win.guide": "Запустите <code>.exe</code>. При появлении окна SmartScreen нажмите <b>Подробнее</b> → <b>Выполнить в любом случае</b>.",
       "dl.and.guide": "Откройте файл <code>.apk</code> на Android и подтвердите установку.",
       "dl.tip": "<b>Уже пользуетесь Noteelus на компьютере?</b> Вы можете отправить приложение на Android прямо из <i>Настроек → Установить на телефон</i>.",
+      "dl.detected": "Определено для вашего устройства",
+      "dl.other": "Другие платформы и архитектуры",
+      "dl.mac.arch": "Apple Silicon (M1–M4)",
+      "dl.win.arch": "64-бит (x64)",
+      "dl.and.arch": "Универсальный (APK)",
+      "dl.ios.soon": "Версия для iPhone и iPad скоро выйдет",
+      "dl.soon.badge": "Скоро",
+      "dl.intel.note": "Пока поддерживаются только Mac с Apple Silicon (M1–M4). При необходимости выберите другую платформу ниже.",
+      "dl.other.os": "Выберите нужную платформу ниже, чтобы скачать Noteelus.",
       "rn.tag": "Обновления",
       "rn.h1": "История версий",
       "rn.sub": "Недавние улучшения для компьютера и телефона."
@@ -407,6 +434,15 @@
       "dl.win.guide": "Abre el instalador <code>.exe</code>. Si aparece SmartScreen, pulsa <b>Más información</b> → <b>Ejecutar de todas formas</b>.",
       "dl.and.guide": "Toca el archivo <code>.apk</code> en Android y acepta la instalación cuando se solicite.",
       "dl.tip": "<b>¿Ya usas Noteelus en el ordenador?</b> También puedes enviar la app a tu móvil desde <i>Ajustes → Instalar en mi teléfono</i>.",
+      "dl.detected": "Detectado para tu dispositivo",
+      "dl.other": "Otras plataformas y arquitecturas",
+      "dl.mac.arch": "Apple Silicon (M1 a M4)",
+      "dl.win.arch": "64 bits (x64)",
+      "dl.and.arch": "Universal (APK)",
+      "dl.ios.soon": "iPhone y iPad próximamente",
+      "dl.soon.badge": "Próximamente",
+      "dl.intel.note": "Por ahora solo es compatible con Mac Apple Silicon (M1 a M4). Puedes elegir otra plataforma abajo si lo necesitas.",
+      "dl.other.os": "Elige tu plataforma abajo para descargar Noteelus.",
       "rn.tag": "Novedades",
       "rn.h1": "Notas de la versión",
       "rn.sub": "Mejoras recientes en escritorio y móvil."
@@ -507,6 +543,15 @@
       "dl.win.guide": "Abra o arquivo <code>.exe</code>. Se o SmartScreen aparecer, clique em <b>Mais informações</b> → <b>Executar assim mesmo</b>.",
       "dl.and.guide": "Toque no arquivo <code>.apk</code> no Android e confirme a instalação quando solicitado.",
       "dl.tip": "<b>Já usa o Noteelus no computador?</b> Você também pode enviar o app para o Android em <i>Ajustes → Instalar no meu celular</i>.",
+      "dl.detected": "Detectado para o seu aparelho",
+      "dl.other": "Outras plataformas e arquiteturas",
+      "dl.mac.arch": "Apple Silicon (M1 a M4)",
+      "dl.win.arch": "64 bits (x64)",
+      "dl.and.arch": "Universal (APK)",
+      "dl.ios.soon": "iPhone e iPad em breve",
+      "dl.soon.badge": "Em breve",
+      "dl.intel.note": "No momento, apenas Macs com Apple Silicon (M1 a M4) são compatíveis. Escolha outra plataforma abaixo se precisar.",
+      "dl.other.os": "Escolha sua plataforma abaixo para baixar o Noteelus.",
       "rn.tag": "Novidades",
       "rn.h1": "Notas de versão",
       "rn.sub": "Atualizações recentes para computador e celular."
@@ -607,6 +652,15 @@
       "dl.win.guide": "Lancez l'installeur <code>.exe</code>. Si SmartScreen s'affiche, cliquez sur <b>Informations complémentaires</b> → <b>Exécuter quand même</b>.",
       "dl.and.guide": "Ouvrez le fichier <code>.apk</code> sur Android et autorisez l'installation lorsqu'elle est demandée.",
       "dl.tip": "<b>Vous avez déjà Noteelus sur Mac ou Windows ?</b> Vous pouvez aussi envoyer l'app Android vers votre téléphone depuis <i>Réglages → Installer sur mon téléphone</i>.",
+      "dl.detected": "Détecté pour votre appareil",
+      "dl.other": "Autres plateformes et architectures",
+      "dl.mac.arch": "Apple Silicon (M1 à M4)",
+      "dl.win.arch": "64 bits (x64)",
+      "dl.and.arch": "Universel (APK)",
+      "dl.ios.soon": "iPhone et iPad bientôt disponibles",
+      "dl.soon.badge": "Bientôt",
+      "dl.intel.note": "Seuls les Mac Apple Silicon (M1 à M4) sont pris en charge pour le moment. Choisissez une autre plateforme ci-dessous si besoin.",
+      "dl.other.os": "Choisissez votre plateforme ci-dessous pour télécharger Noteelus.",
       "rn.tag": "Mises à jour",
       "rn.h1": "Notes de version",
       "rn.sub": "Les nouveautés récentes sur ordinateur et mobile."
@@ -707,6 +761,15 @@
       "dl.win.guide": "<code>.exe</code> kurulumunu başlatın. SmartScreen çıkarsa <b>Ek bilgi</b> → <b>Yine de çalıştır</b>'a tıklayın.",
       "dl.and.guide": "Android cihazınızda indirilen <code>.apk</code> dosyasına dokunup yüklemeyi onaylayın.",
       "dl.tip": "<b>Bilgisayarda zaten Noteelus kullanıyor musunuz?</b> Uygulamayı <i>Ayarlar → Telefonuma yükle</i> menüsünden doğrudan Android telefonunuza da gönderebilirsiniz.",
+      "dl.detected": "Cihazınız için algılandı",
+      "dl.other": "Diğer platformlar ve mimariler",
+      "dl.mac.arch": "Apple Silicon (M1–M4)",
+      "dl.win.arch": "64-bit (x64)",
+      "dl.and.arch": "Evrensel (APK)",
+      "dl.ios.soon": "iPhone ve iPad sürümü yakında",
+      "dl.soon.badge": "Yakında",
+      "dl.intel.note": "Şimdilik yalnızca Apple Silicon (M1–M4) Mac'ler destekleniyor. Gerekirse aşağıdan başka bir platform seçebilirsiniz.",
+      "dl.other.os": "Noteelus'u indirmek için aşağıdan platformunuzu seçin.",
       "rn.tag": "Yenilikler",
       "rn.h1": "Sürüm Notları",
       "rn.sub": "Masaüstü ve mobil sürümlerdeki son iyileştirmeler."
@@ -779,6 +842,9 @@
     });
     refreshLangMenu(l);
     refreshThemeLabel(l);
+    try {
+      document.dispatchEvent(new CustomEvent("noteelus:langchange", { detail: { lang: l } }));
+    } catch (_) {}
   }
 
   window.NoteelusI18n = { dict: dict, setLang: setLang };

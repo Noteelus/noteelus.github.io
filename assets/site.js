@@ -125,45 +125,217 @@
       videos.forEach(function (v) { io.observe(v); });
     }
 
-    // Download Page OS Detection & GitHub Releases Loader
-    var osCards = document.querySelectorAll("[data-os-card]");
-    if (osCards.length) {
+    // Platform + Architecture Auto-Detection & GitHub Releases Loader (/ and /download/)
+    var detected = detectPlatformAndArch();
+    var releaseState = { tag: null, assets: null };
+    var othersEl = document.getElementById("dl-others");
+    var hasAllHash = window.location.hash === "#all";
+
+    function currentDict() {
+      var lang = document.documentElement.lang || "en";
+      var i18n = window.NoteelusI18n && window.NoteelusI18n.dict;
+      return (i18n && (i18n[lang] || i18n.en)) || null;
+    }
+
+    function detectPlatformAndArch() {
+      var uad = navigator.userAgentData;
+      var uadPlat = (uad && uad.platform ? uad.platform : "").toLowerCase();
       var ua = (navigator.userAgent || "").toLowerCase();
       var plat = (navigator.platform || "").toLowerCase();
-      var os = /android/.test(ua) ? "android" : (/win/.test(ua) || /win/.test(plat)) ? "win" : "mac";
+      var os = "other";
 
-      osCards.forEach(function (card) {
-        card.classList.toggle("is-detected", card.getAttribute("data-os-card") === os);
+      if (/iphone|ipad|ipod/.test(ua) || (/mac/.test(plat) && navigator.maxTouchPoints > 1)) {
+        os = "ios";
+      } else if (uadPlat === "android" || /android/.test(ua)) {
+        os = "android";
+      } else if (uadPlat === "windows" || /win/.test(ua) || /win/.test(plat)) {
+        os = "win";
+      } else if (uadPlat === "macos" || /mac/.test(ua) || /mac/.test(plat)) {
+        os = "mac";
+      }
+
+      var arch = os === "mac" ? "arm64" : os === "win" ? "x64" : os === "android" ? "universal" : "";
+      if (os === "mac") {
+        try {
+          var c = document.createElement("canvas");
+          var gl = c.getContext("webgl") || c.getContext("experimental-webgl");
+          if (gl) {
+            var ext = gl.getExtension("WEBGL_debug_renderer_info");
+            var rnd = ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) || "").toLowerCase() : "";
+            if ((/\bintel\b/.test(rnd) || /\bamd\b/.test(rnd)) && rnd.indexOf("apple") === -1) {
+              arch = "x64";
+            }
+          }
+        } catch (_) {}
+      }
+      return { os: os, arch: arch };
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || isNaN(bytes)) return "";
+      var mb = Math.round(bytes / (1024 * 1024));
+      return mb > 0 ? mb + " MB" : Math.max(1, Math.round(bytes / 1024)) + " KB";
+    }
+
+    function renderDownloadUi(fromInit) {
+      var d = currentDict();
+      var os = detected.os;
+      var supported = (os === "mac" && detected.arch !== "x64") || os === "win" || os === "android";
+      var keyMap = { mac: "mac", win: "win", android: "and" };
+      var k = keyMap[os];
+      var titles = { mac: "macOS", win: "Windows", android: "Android", ios: "iPhone & iPad", other: "Noteelus" };
+      var exts = { mac: ".pkg", win: ".exe", android: ".apk" };
+      var assets = releaseState.assets;
+      var activeAsset = supported && assets ? assets[os] : null;
+
+      // Home landing page CTAs
+      var heroCta = document.getElementById("hero-dl-cta");
+      var closeCta = document.getElementById("close-dl-cta");
+      var heroMeta = document.getElementById("hero-release-meta");
+      if (heroCta) {
+        if (supported && d && d["dl." + k + ".btn"]) {
+          heroCta.textContent = d["dl." + k + ".btn"];
+        } else if (d && d["hero.cta"]) {
+          heroCta.textContent = d["hero.cta"];
+        }
+        heroCta.href = activeAsset && activeAsset.url ? activeAsset.url : "/download/";
+      }
+      if (closeCta) {
+        if (supported && d && d["dl." + k + ".btn"]) {
+          closeCta.textContent = d["dl." + k + ".btn"];
+        } else if (d && d["close.cta"]) {
+          closeCta.textContent = d["close.cta"];
+        }
+        closeCta.href = activeAsset && activeAsset.url ? activeAsset.url : "/download/";
+      }
+      if (heroMeta) {
+        if (supported && releaseState.tag) {
+          heroMeta.textContent = " · " + releaseState.tag + " · " + exts[os];
+          heroMeta.hidden = false;
+        } else {
+          heroMeta.hidden = true;
+        }
+      }
+
+      // /download/ page single-focus card + subtle platform/arch picker
+      var primaryCard = document.getElementById("dl-primary-card");
+      if (!primaryCard) return;
+
+      var verBadge = document.getElementById("release-version");
+      if (verBadge && releaseState.tag) {
+        verBadge.textContent = releaseState.tag;
+        verBadge.hidden = false;
+      }
+
+      var pillEl = document.getElementById("dl-detected-pill");
+      var titleEl = document.getElementById("detected-os-title");
+      var archEl = document.getElementById("detected-os-arch");
+      var descEl = document.getElementById("detected-os-desc");
+      var ctaEl = document.getElementById("os-primary-cta");
+      var fileMetaEl = document.getElementById("detected-file-meta");
+      var guideWrap = document.getElementById("detected-guide-wrap");
+      var guideEl = document.getElementById("detected-os-guide");
+
+      if (titleEl) titleEl.textContent = os === "mac" && detected.arch === "x64" ? "macOS · Intel" : (titles[os] || "Noteelus");
+
+      if (supported) {
+        if (pillEl) {
+          pillEl.hidden = false;
+          if (d && d["dl.detected"]) pillEl.textContent = d["dl.detected"];
+        }
+        if (archEl) {
+          archEl.hidden = false;
+          if (d && d["dl." + k + ".arch"]) archEl.textContent = d["dl." + k + ".arch"];
+        }
+        if (descEl && d && d["dl." + k + ".desc"]) descEl.textContent = d["dl." + k + ".desc"];
+        if (ctaEl) {
+          ctaEl.hidden = false;
+          if (d && d["dl." + k + ".btn"]) ctaEl.textContent = d["dl." + k + ".btn"];
+          ctaEl.href = activeAsset && activeAsset.url ? activeAsset.url : FALLBACK_RELEASES;
+        }
+        if (fileMetaEl) {
+          if (activeAsset && activeAsset.name) {
+            var sz = formatBytes(activeAsset.size);
+            fileMetaEl.textContent = sz ? activeAsset.name + " · " + sz : activeAsset.name;
+            fileMetaEl.hidden = false;
+          } else {
+            fileMetaEl.hidden = true;
+          }
+        }
+        if (guideEl && d && d["dl." + k + ".guide"]) guideEl.innerHTML = d["dl." + k + ".guide"];
+        if (guideWrap) guideWrap.hidden = false;
+      } else {
+        if (pillEl) pillEl.hidden = !(os === "ios" || (os === "mac" && detected.arch === "x64"));
+        if (archEl) {
+          archEl.hidden = os !== "ios" && os !== "mac";
+          if (os === "ios") archEl.textContent = "iOS";
+          else if (os === "mac") archEl.textContent = "Intel (x86_64)";
+        }
+        if (descEl && d) {
+          if (os === "mac" && detected.arch === "x64") descEl.textContent = d["dl.intel.note"];
+          else if (os === "ios") descEl.textContent = d["dl.ios.soon"];
+          else descEl.textContent = d["dl.other.os"];
+        }
+        if (ctaEl) ctaEl.hidden = true;
+        if (fileMetaEl) fileMetaEl.hidden = true;
+        if (guideWrap) guideWrap.hidden = true;
+      }
+
+      document.querySelectorAll("[data-os-row]").forEach(function (row) {
+        var rowOs = row.getAttribute("data-os-row");
+        row.classList.toggle("is-current", supported && rowOs === os);
       });
 
-      var osNames = { mac: "macOS (.pkg)", win: "Windows (.exe)", android: "Android (.apk)" };
-      var osLabelEl = document.getElementById("detected-os-name");
-      if (osLabelEl) osLabelEl.textContent = osNames[os];
+      ["mac", "win", "android"].forEach(function (p) {
+        var asset = assets ? assets[p] : null;
+        var a = document.getElementById("dl-" + p);
+        if (a) a.href = asset && asset.url ? asset.url : FALLBACK_RELEASES;
+        var s = document.getElementById("size-" + p);
+        if (s) {
+          var txt = asset ? formatBytes(asset.size) : "";
+          s.textContent = txt;
+          s.hidden = !txt;
+        }
+      });
 
-      var primaryCta = document.getElementById("os-primary-cta");
+      if (othersEl && fromInit) {
+        othersEl.open = !supported || hasAllHash;
+      }
+    }
+
+    var needsReleaseFetch = document.getElementById("hero-dl-cta") || document.getElementById("dl-primary-card");
+    if (needsReleaseFetch) {
+      renderDownloadUi(true);
+      document.addEventListener("noteelus:langchange", function () { renderDownloadUi(false); });
+
+      if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+        navigator.userAgentData.getHighEntropyValues(["architecture", "bitness"]).then(function (hints) {
+          var a = (hints && hints.architecture ? hints.architecture : "").toLowerCase();
+          if (detected.os === "mac" && a === "x86") {
+            detected.arch = "x64";
+            renderDownloadUi(true);
+          } else if (detected.os === "win" && a === "arm") {
+            detected.arch = "arm64";
+            renderDownloadUi(false);
+          }
+        }).catch(function () {});
+      }
+
       fetch("https://api.github.com/repos/" + REPO + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (rel) {
           if (!rel || !Array.isArray(rel.assets) || !rel.assets.length) return;
-          var verBadge = document.getElementById("release-version");
-          if (verBadge && rel.tag_name) {
-            verBadge.textContent = rel.tag_name;
-            verBadge.hidden = false;
-          }
-          var macAsset = rel.assets.find(function (a) { return /mac.*\.pkg$/i.test(a.name); });
+          var macAsset = rel.assets.find(function (a) { return /mac.*(apple-silicon|arm64).*\.pkg$/i.test(a.name); }) ||
+            rel.assets.find(function (a) { return /mac.*\.pkg$/i.test(a.name); });
           var winAsset = rel.assets.find(function (a) { return /windows.*\.exe$/i.test(a.name); });
           var andAsset = rel.assets.find(function (a) { return /android.*\.apk$/i.test(a.name); });
-
-          var urls = {
-            mac: macAsset ? macAsset.browser_download_url : FALLBACK_RELEASES,
-            win: winAsset ? winAsset.browser_download_url : FALLBACK_RELEASES,
-            android: andAsset ? andAsset.browser_download_url : FALLBACK_RELEASES
+          releaseState.tag = rel.tag_name || null;
+          releaseState.assets = {
+            mac: macAsset ? { url: macAsset.browser_download_url, name: macAsset.name, size: macAsset.size } : null,
+            win: winAsset ? { url: winAsset.browser_download_url, name: winAsset.name, size: winAsset.size } : null,
+            android: andAsset ? { url: andAsset.browser_download_url, name: andAsset.name, size: andAsset.size } : null
           };
-          if (primaryCta) primaryCta.href = urls[os];
-          ["mac", "win", "android"].forEach(function (k) {
-            var a = document.getElementById("dl-" + k);
-            if (a) a.href = urls[k];
-          });
+          renderDownloadUi(false);
         })
         .catch(function () {});
     }
