@@ -122,7 +122,12 @@
       "dl.other.os": "Choose your platform below to download Noteelus.",
       "rn.tag": "Updates",
       "rn.h1": "Release Notes",
-      "rn.sub": "Recent improvements across desktop and mobile."
+      "rn.sub": "Recent improvements across desktop and mobile.",
+      "foot.coffee": "Buy me a coffee",
+      "close.indie": "Built independently, free forever.",
+      "dl.thanks.title": "Download started",
+      "dl.thanks.body": "Noteelus is free and built independently. If it helps you, you can thank the developer with a coffee.",
+      "dl.thanks.cta": "Buy me a coffee on Ko-fi"
     },
     "zh-CN": {
       "theme.light": "浅色",
@@ -235,7 +240,12 @@
       "dl.other.os": "请在下方选择你的平台版本进行下载。",
       "rn.tag": "更新",
       "rn.h1": "更新日志",
-      "rn.sub": "Noteelus 桌面端与手机端的近期更新。"
+      "rn.sub": "Noteelus 桌面端与手机端的近期更新。",
+      "foot.coffee": "请开发者喝杯咖啡",
+      "close.indie": "独立开发，永久免费。",
+      "dl.thanks.title": "下载已开始",
+      "dl.thanks.body": "Noteelus 由独立开发者免费维护。如果对你有帮助，欢迎请作者喝杯咖啡。",
+      "dl.thanks.cta": "在 Ko-fi 请喝杯咖啡"
     },
     ru: {
       "theme.light": "Светлая",
@@ -348,7 +358,12 @@
       "dl.other.os": "Выберите нужную платформу ниже, чтобы скачать Noteelus.",
       "rn.tag": "Обновления",
       "rn.h1": "История версий",
-      "rn.sub": "Недавние улучшения для компьютера и телефона."
+      "rn.sub": "Недавние улучшения для компьютера и телефона.",
+      "foot.coffee": "Угостить кофе",
+      "close.indie": "Независимый проект, бесплатно навсегда.",
+      "dl.thanks.title": "Загрузка началась",
+      "dl.thanks.body": "Noteelus создаётся независимо и полностью бесплатно. Если приложение вам нравится, можно угостить автора кофе.",
+      "dl.thanks.cta": "Угостить кофе на Ko-fi"
     },
     es: {
       "theme.light": "Claro",
@@ -461,7 +476,12 @@
       "dl.other.os": "Elige tu plataforma abajo para descargar Noteelus.",
       "rn.tag": "Novedades",
       "rn.h1": "Notas de la versión",
-      "rn.sub": "Mejoras recientes en escritorio y móvil."
+      "rn.sub": "Mejoras recientes en escritorio y móvil.",
+      "foot.coffee": "Invítame a un café",
+      "close.indie": "Desarrollo independiente, gratis para siempre.",
+      "dl.thanks.title": "Descarga iniciada",
+      "dl.thanks.body": "Noteelus es gratuito e independiente. Si te resulta útil, puedes agradecer al desarrollador con un café.",
+      "dl.thanks.cta": "Invitar a un café en Ko-fi"
     },
     "pt-BR": {
       "theme.light": "Claro",
@@ -574,7 +594,12 @@
       "dl.other.os": "Escolha sua plataforma abaixo para baixar o Noteelus.",
       "rn.tag": "Novidades",
       "rn.h1": "Notas de versão",
-      "rn.sub": "Atualizações recentes para computador e celular."
+      "rn.sub": "Atualizações recentes para computador e celular.",
+      "foot.coffee": "Pagar um café",
+      "close.indie": "Feito de forma independente, grátis para sempre.",
+      "dl.thanks.title": "Download iniciado",
+      "dl.thanks.body": "O Noteelus é gratuito e desenvolvido de forma independente. Se ele ajudar você, pague um café para o criador.",
+      "dl.thanks.cta": "Pagar um café no Ko-fi"
     },
     fr: {
       "theme.light": "Clair",
@@ -687,7 +712,12 @@
       "dl.other.os": "Choisissez votre plateforme ci-dessous pour télécharger Noteelus.",
       "rn.tag": "Mises à jour",
       "rn.h1": "Notes de version",
-      "rn.sub": "Les nouveautés récentes sur ordinateur et mobile."
+      "rn.sub": "Les nouveautés récentes sur ordinateur et mobile.",
+      "foot.coffee": "Offrir un café",
+      "close.indie": "Développé indépendamment, gratuit pour toujours.",
+      "dl.thanks.title": "Téléchargement lancé",
+      "dl.thanks.body": "Noteelus est gratuit et développé indépendamment. Si l'app vous plaît, vous pouvez offrir un café au développeur.",
+      "dl.thanks.cta": "Offrir un café sur Ko-fi"
     },
     tr: {
       "theme.light": "Açık",
@@ -800,7 +830,12 @@
       "dl.other.os": "Noteelus'u indirmek için aşağıdan platformunuzu seçin.",
       "rn.tag": "Yenilikler",
       "rn.h1": "Sürüm Notları",
-      "rn.sub": "Masaüstü ve mobil sürümlerdeki son iyileştirmeler."
+      "rn.sub": "Masaüstü ve mobil sürümlerdeki son iyileştirmeler.",
+      "foot.coffee": "Bir kahve ısmarla",
+      "close.indie": "Bağımsız geliştirildi, sonsuza dek ücretsiz.",
+      "dl.thanks.title": "İndirme başladı",
+      "dl.thanks.body": "Noteelus ücretsiz ve bağımsız olarak geliştiriliyor. İşinize yarıyorsa geliştiriciye bir kahve ısmarlayabilirsiniz.",
+      "dl.thanks.cta": "Ko-fi'de bir kahve ısmarla"
     }
   };
 

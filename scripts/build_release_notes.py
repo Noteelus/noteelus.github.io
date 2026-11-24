@@ -87,11 +87,11 @@ def build_html(versions) -> str:
 <meta property="og:site_name" content="Noteelus">
 <meta property="og:title" content="Noteelus Release Notes">
 <meta property="og:description" content="Recent updates and improvements in Noteelus across desktop and mobile.">
-<meta property="og:image" content="https://noteelus.github.io/assets/og.png">
+<meta property="og:image" content="https://noteelus.github.io/assets/og.png?v=4">
 <script>
 (function(){{try{{var s=localStorage.getItem("noteelus_theme");var d=s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.setAttribute("data-theme","dark");}}catch(_){{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}}}})();
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="stylesheet" href="/assets/site.css?v=13">
 </head>
 <body>
 
@@ -148,13 +148,14 @@ def build_html(versions) -> str:
     <a href="/terms.html" data-i18n="foot.terms">Terms of Use</a>
     <a href="/THIRD_PARTY_NOTICES.md" data-i18n="foot.notices">Third-Party Notices</a>
     <a href="https://github.com/Noteelus/noteelus.github.io">GitHub</a>
+    <a class="coffee-link" href="https://ko-fi.com/noteelus" target="_blank" rel="noopener noreferrer"><svg class="coffee-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 5.5h8.5v4.2a3.3 3.3 0 0 1-3.3 3.3H5.8a3.3 3.3 0 0 1-3.3-3.3V5.5z"/><path d="M11 6.5h1.5a1.8 1.8 0 0 1 0 3.6H11"/><path d="M5.2 2.4c0 .9.6 1 .6 1.8M7.8 2.4c0 .9.6 1 .6 1.8"/></svg><span data-i18n="foot.coffee">Buy me a coffee</span></a>
     <a href="mailto:noteelus-support@googlegroups.com">noteelus-support@googlegroups.com</a>
   </nav>
   <div>© 2026 Noteelus</div>
 </footer>
 
-<script src="/assets/i18n.js?v=6"></script>
-<script src="/assets/site.js?v=6"></script>
+<script src="/assets/i18n.js?v=11"></script>
+<script src="/assets/site.js?v=11"></script>
 </body>
 </html>
 """

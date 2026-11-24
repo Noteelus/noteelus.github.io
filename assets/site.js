@@ -272,6 +272,25 @@
       renderDownloadUi(true);
       document.addEventListener("noteelus:langchange", function () { renderDownloadUi(false); });
 
+      var thanksEl = document.getElementById("dl-thanks");
+      var thanksClose = document.getElementById("dl-thanks-close");
+      if (thanksEl) {
+        document.querySelectorAll("[data-dl-trigger]").forEach(function (trigger) {
+          trigger.addEventListener("click", function () {
+            thanksEl.hidden = false;
+            var rect = thanksEl.getBoundingClientRect();
+            if (rect.top < 72 || rect.bottom > window.innerHeight) {
+              thanksEl.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
+            }
+          });
+        });
+        if (thanksClose) {
+          thanksClose.addEventListener("click", function () {
+            thanksEl.hidden = true;
+          });
+        }
+      }
+
       if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
         navigator.userAgentData.getHighEntropyValues(["architecture", "bitness"]).then(function (hints) {
           var a = (hints && hints.architecture ? hints.architecture : "").toLowerCase();

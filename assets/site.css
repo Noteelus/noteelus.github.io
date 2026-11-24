@@ -570,6 +570,100 @@ img, video { display: block; max-width: 100%; }
 .foot-links a { text-decoration: none; }
 .foot-links a:hover { color: var(--ink); text-decoration: underline; }
 
+/* ---- DISCREET COFFEE / DEVELOPER SUPPORT ---- */
+.coffee-ico {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--coral);
+}
+.coffee-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+}
+.closing-support {
+  margin: 18px auto 0;
+  font-size: 13.5px;
+  color: var(--faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+.closing-support .coffee-link {
+  color: var(--muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 1px;
+  transition: color .15s, border-color .15s;
+}
+.closing-support .coffee-link:hover {
+  color: var(--coral);
+  border-color: var(--coral);
+}
+
+.dl-thanks {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--surface-alt);
+  border: 1px solid var(--rule-strong);
+  text-align: left;
+  animation: dl-thanks-in .22s ease-out;
+}
+.dl-thanks[hidden] { display: none; }
+@keyframes dl-thanks-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dl-thanks { animation: none; }
+}
+.dl-thanks-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.dl-thanks-head strong {
+  font-size: 14px;
+  color: var(--ink);
+}
+.dl-thanks-close {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color .15s, background-color .15s;
+}
+.dl-thanks-close:hover {
+  color: var(--ink);
+  background: var(--surface);
+}
+.dl-thanks p {
+  margin: 6px 0 12px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.coffee-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
 /* ---- SUBPAGES: DOWNLOADS & RELEASE NOTES ---- */
 .page-head {
   padding: 52px 0 32px;
