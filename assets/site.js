@@ -178,13 +178,18 @@
     function renderDownloadUi(fromInit) {
       var d = currentDict();
       var os = detected.os;
-      var supported = (os === "mac" && detected.arch !== "x64") || os === "win" || os === "android";
-      var keyMap = { mac: "mac", win: "win", android: "and" };
-      var k = keyMap[os];
+      var platformKey = (os === "mac" && detected.arch === "x64") ? "mac-intel" : os;
+      var supported = os === "mac" || os === "win" || os === "android";
+      var metaMap = {
+        mac: { arch: "dl.mac.arch", desc: "dl.mac.desc", btn: "dl.mac.btn", guide: "dl.mac.guide" },
+        "mac-intel": { arch: "dl.mac.intel.arch", desc: "dl.mac.intel.desc", btn: "dl.mac.btn", guide: "dl.mac.guide" },
+        win: { arch: "dl.win.arch", desc: "dl.win.desc", btn: "dl.win.btn", guide: "dl.win.guide" },
+        android: { arch: "dl.and.arch", desc: "dl.and.desc", btn: "dl.and.btn", guide: "dl.and.guide" }
+      };
+      var meta = metaMap[platformKey];
       var titles = { mac: "macOS", win: "Windows", android: "Android", ios: "iPhone & iPad", other: "Noteelus" };
-      var exts = { mac: ".pkg", win: ".exe", android: ".apk" };
       var assets = releaseState.assets;
-      var activeAsset = supported && assets ? assets[os] : null;
+      var activeAsset = supported && assets ? assets[platformKey] : null;
 
       // /download/ page single-focus card + subtle platform/arch picker
       var primaryCard = document.getElementById("dl-primary-card");
@@ -205,21 +210,21 @@
       var guideWrap = document.getElementById("detected-guide-wrap");
       var guideEl = document.getElementById("detected-os-guide");
 
-      if (titleEl) titleEl.textContent = os === "mac" && detected.arch === "x64" ? "macOS · Intel" : (titles[os] || "Noteelus");
+      if (titleEl) titleEl.textContent = titles[os] || "Noteelus";
 
-      if (supported) {
+      if (supported && meta) {
         if (pillEl) {
           pillEl.hidden = false;
           if (d && d["dl.detected"]) pillEl.textContent = d["dl.detected"];
         }
         if (archEl) {
           archEl.hidden = false;
-          if (d && d["dl." + k + ".arch"]) archEl.textContent = d["dl." + k + ".arch"];
+          if (d && d[meta.arch]) archEl.textContent = d[meta.arch];
         }
-        if (descEl && d && d["dl." + k + ".desc"]) descEl.textContent = d["dl." + k + ".desc"];
+        if (descEl && d && d[meta.desc]) descEl.textContent = d[meta.desc];
         if (ctaEl) {
           ctaEl.hidden = false;
-          if (d && d["dl." + k + ".btn"]) ctaEl.textContent = d["dl." + k + ".btn"];
+          if (d && d[meta.btn]) ctaEl.textContent = d[meta.btn];
           ctaEl.href = activeAsset && activeAsset.url ? activeAsset.url : FALLBACK_RELEASES;
         }
         if (fileMetaEl) {
@@ -231,18 +236,16 @@
             fileMetaEl.hidden = true;
           }
         }
-        if (guideEl && d && d["dl." + k + ".guide"]) guideEl.innerHTML = d["dl." + k + ".guide"];
+        if (guideEl && d && d[meta.guide]) guideEl.innerHTML = d[meta.guide];
         if (guideWrap) guideWrap.hidden = false;
       } else {
-        if (pillEl) pillEl.hidden = !(os === "ios" || (os === "mac" && detected.arch === "x64"));
+        if (pillEl) pillEl.hidden = os !== "ios";
         if (archEl) {
-          archEl.hidden = os !== "ios" && os !== "mac";
+          archEl.hidden = os !== "ios";
           if (os === "ios") archEl.textContent = "iOS";
-          else if (os === "mac") archEl.textContent = "Intel (x86_64)";
         }
         if (descEl && d) {
-          if (os === "mac" && detected.arch === "x64") descEl.textContent = d["dl.intel.note"];
-          else if (os === "ios") descEl.textContent = d["dl.ios.soon"];
+          if (os === "ios") descEl.textContent = d["dl.ios.soon"];
           else descEl.textContent = d["dl.other.os"];
         }
         if (ctaEl) ctaEl.hidden = true;
@@ -252,10 +255,10 @@
 
       document.querySelectorAll("[data-os-row]").forEach(function (row) {
         var rowOs = row.getAttribute("data-os-row");
-        row.classList.toggle("is-current", supported && rowOs === os);
+        row.classList.toggle("is-current", supported && rowOs === platformKey);
       });
 
-      ["mac", "win", "android"].forEach(function (p) {
+      ["mac", "mac-intel", "win", "android"].forEach(function (p) {
         var asset = assets ? assets[p] : null;
         var a = document.getElementById("dl-" + p);
         if (a) a.href = asset && asset.url ? asset.url : FALLBACK_RELEASES;
@@ -309,12 +312,14 @@
         .then(function (rel) {
           if (!rel || !Array.isArray(rel.assets) || !rel.assets.length) return;
           var macAsset = rel.assets.find(function (a) { return /mac.*(apple-silicon|arm64).*\.pkg$/i.test(a.name); }) ||
-            rel.assets.find(function (a) { return /mac.*\.pkg$/i.test(a.name); });
+            rel.assets.find(function (a) { return /mac.*\.pkg$/i.test(a.name) && !/(intel|x86_64|x64)/i.test(a.name); });
+          var macIntelAsset = rel.assets.find(function (a) { return /mac.*(intel|x86_64|x64).*\.pkg$/i.test(a.name); });
           var winAsset = rel.assets.find(function (a) { return /windows.*\.exe$/i.test(a.name); });
           var andAsset = rel.assets.find(function (a) { return /android.*\.apk$/i.test(a.name); });
           releaseState.tag = rel.tag_name || null;
           releaseState.assets = {
             mac: macAsset ? { url: macAsset.browser_download_url, name: macAsset.name, size: macAsset.size } : null,
+            "mac-intel": macIntelAsset ? { url: macIntelAsset.browser_download_url, name: macIntelAsset.name, size: macIntelAsset.size } : null,
             win: winAsset ? { url: winAsset.browser_download_url, name: winAsset.name, size: winAsset.size } : null,
             android: andAsset ? { url: andAsset.browser_download_url, name: andAsset.name, size: andAsset.size } : null
           };

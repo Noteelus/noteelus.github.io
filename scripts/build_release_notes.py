@@ -158,8 +158,8 @@ def build_html(versions) -> str:
   <div>© 2026 Noteelus</div>
 </footer>
 
-<script src="/assets/i18n.js?v=12"></script>
-<script src="/assets/site.js?v=11"></script>
+<script src="/assets/i18n.js?v=13"></script>
+<script src="/assets/site.js?v=12"></script>
 </body>
 </html>
 """

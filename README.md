@@ -78,7 +78,7 @@ Seal any container with its own password and one-time recovery key: titles, bodi
 
 | Platform | Package | Beta Status | First-Launch Note |
 |---|---|---|---|
-| **macOS** (Apple Silicon) | `.pkg` | Available | If Gatekeeper warns for an unverified developer, open **System Settings → Privacy &amp; Security → Open Anyway**. |
+| **macOS** (Apple Silicon &amp; Intel) | `.pkg` | Available | If Gatekeeper warns for an unverified developer, open **System Settings → Privacy &amp; Security → Open Anyway**. |
 | **Windows 10 / 11** (64-bit) | `.exe` | Available | If SmartScreen appears, choose **More info → Run anyway**. |
 | **Android 8+** | `.apk` | Available | Install directly from Releases or transfer from Desktop via *Settings → Install on my phone*. |
 | **iOS / iPadOS** | App Store / TestFlight | In progress | Shares the same Kotlin Multiplatform core and Drive sync format. |

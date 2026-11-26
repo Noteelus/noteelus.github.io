@@ -78,7 +78,7 @@ Scellez un conteneur avec son propre mot de passe et sa clé de secours unique :
 
 | Plateforme | Paquet | Statut bêta | Premier lancement |
 |---|---|---|---|
-| **macOS** (Apple Silicon) | `.pkg` | Disponible | Si Gatekeeper alerte : **Réglages Système → Confidentialité et sécurité → Ouvrir quand même**. |
+| **macOS** (Apple Silicon &amp; Intel) | `.pkg` | Disponible | Si Gatekeeper alerte : **Réglages Système → Confidentialité et sécurité → Ouvrir quand même**. |
 | **Windows 10 / 11** (64 bits) | `.exe` | Disponible | Si SmartScreen apparaît : **Informations complémentaires → Exécuter quand même**. |
 | **Android 8+** | `.apk` | Disponible | Depuis les Releases ou depuis l'app bureau (*Réglages → Installer sur mon téléphone*). |
 | **iOS / iPadOS** | App Store / TestFlight | En cours | Partage le même cœur Kotlin Multiplatform. |
