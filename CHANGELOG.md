@@ -2,6 +2,17 @@
 
 All notable releases of Noteelus are documented here.
 
+## [1.0.69] - 2026-11-26
+
+Pretty View editing stability improvements and native macOS Intel installer support.
+
+### Fixed
+- **Pretty View editing on empty notes & leading blank lines**: Fixed duplicate lines, squashed empty-line fields, and focus loss when pressing Enter or typing spaces at the start of an empty note, at the start of any paragraph (including inside `:::details` sections), or when switching directly between empty notes.
+- **Empty-note Enter & Undo/Redo**: Fixed 1-second input stalls and focus drops when pressing Enter, Backspace, or Cmd+Z / Cmd+Shift+Z on emptied lines or paragraphs in Pretty View.
+
+### New
+- **macOS Intel installer**: Added native `x86_64` macOS `.pkg` build alongside Apple Silicon, Windows, and Android downloads.
+
 ## [1.0.68] - 2026-11-24
 
 Refreshed mobile reading experience with floating islands and unified Swiss Sheet dialogs across the app.
