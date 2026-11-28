@@ -2,6 +2,16 @@
 
 All notable releases of Noteelus are documented here.
 
+## [1.0.70] - 2026-11-28
+
+Pretty View header note switcher and smoother collapsible `:::details` title bar interactions.
+
+### New
+- **Pretty View header note switcher**: Replaced the left hover `<` `>` arrows with a right-side dropdown note switcher next to the note title.
+
+### Fixed
+- **Pretty View `:::details` title bar**: Single-clicking the title bar now opens or closes the section, while double-clicking opens inline title editing without toggling the section.
+
 ## [1.0.69] - 2026-11-26
 
 Pretty View editing stability improvements and native macOS Intel installer support.
